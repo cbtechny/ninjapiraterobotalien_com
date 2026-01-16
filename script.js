@@ -72,9 +72,6 @@ function initMobileMenu() {
   const nav = document.querySelector('.main-nav');
   
   if (toggle && nav) {
-    // Mark as initialized immediately to prevent race conditions
-    mobileMenuInitialized = true;
-    
     // Add click event to toggle menu
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -89,5 +86,8 @@ function initMobileMenu() {
         toggle.classList.remove('active');
       }
     });
+    
+    // Mark as initialized after all event listeners are successfully added
+    mobileMenuInitialized = true;
   }
 }
