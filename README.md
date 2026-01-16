@@ -9,7 +9,7 @@ N.P.R.A. Games is dedicated to creating games with explosive energy and modular 
 ### Current Projects
 
 - **Sackjack Island** - A vibrant adventure game featuring dynamic gameplay and blackjack and potatoes...
-- 
+
 ## 🚀 Site Features
 
 - Modern, responsive design with vibrant gradients and bold typography
