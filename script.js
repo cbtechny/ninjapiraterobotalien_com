@@ -14,13 +14,10 @@ document.addEventListener('DOMContentLoaded', async () => {
  */
 async function injectComponents() {
   try {
-    // Determine the base path based on current location
-    const basePath = getBasePath();
-    
     // Inject header
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
-      const headerResponse = await fetch(`${basePath}/partials/header.html`);
+      const headerResponse = await fetch('/partials/header.html');
       if (headerResponse.ok) {
         headerPlaceholder.innerHTML = await headerResponse.text();
         highlightActiveNav();
@@ -30,7 +27,7 @@ async function injectComponents() {
     // Inject footer
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-      const footerResponse = await fetch(`${basePath}/partials/footer.html`);
+      const footerResponse = await fetch('/partials/footer.html');
       if (footerResponse.ok) {
         footerPlaceholder.innerHTML = await footerResponse.text();
       }
@@ -58,24 +55,6 @@ function highlightActiveNav() {
       link.style.color = 'var(--color-accent)';
     }
   });
-}
-
-/**
- * Calculate the base path to root directory
- */
-function getBasePath() {
-  const path = window.location.pathname;
-  
-  // Count directory depth from index.html location
-  // Remove filename if present
-  const pathWithoutFile = path.endsWith('.html') ? path.substring(0, path.lastIndexOf('/')) : path;
-  const depth = (pathWithoutFile.split('/').filter(p => p.length > 0).length);
-  
-  // If at root (index.html or root folder)
-  if (depth === 0 || depth === 1) return '.';
-  
-  // Go up directories based on depth
-  return '../'.repeat(depth - 1);
 }
 
 /**
