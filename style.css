@@ -316,7 +316,11 @@ img {
 }
 
 .hero h1 {
-  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 1pt #000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
   margin-bottom: var(--space-sm);
 }
 
