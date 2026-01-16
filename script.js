@@ -3,10 +3,12 @@
  * Handles shared component injection and site interactions
  */
 
+// Track if mobile menu has been initialized to avoid duplicate listeners
+let mobileMenuInitialized = false;
+
 // Inject shared header and footer on page load
 document.addEventListener('DOMContentLoaded', async () => {
   await injectComponents();
-  initMobileMenu();
 });
 
 /**
@@ -61,11 +63,18 @@ function highlightActiveNav() {
  * Initialize mobile menu toggle functionality
  */
 function initMobileMenu() {
+  // Prevent duplicate initialization
+  if (mobileMenuInitialized) {
+    return;
+  }
+  
   const toggle = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.main-nav');
   
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
+    // Add click event to toggle menu
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       nav.classList.toggle('active');
       toggle.classList.toggle('active');
     });
@@ -77,5 +86,8 @@ function initMobileMenu() {
         toggle.classList.remove('active');
       }
     });
+    
+    // Mark as initialized
+    mobileMenuInitialized = true;
   }
 }
