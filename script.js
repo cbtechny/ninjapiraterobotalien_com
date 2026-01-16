@@ -74,14 +74,25 @@ function initMobileMenu() {
   if (toggle && nav) {
     // Add click event to toggle menu
     toggle.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       nav.classList.toggle('active');
       toggle.classList.toggle('active');
     });
     
+    // Close menu when clicking on nav items
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        toggle.classList.remove('active');
+      });
+    });
+    
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+      const isToggleOrNav = toggle.contains(e.target) || nav.contains(e.target);
+      if (!isToggleOrNav && nav.classList.contains('active')) {
         nav.classList.remove('active');
         toggle.classList.remove('active');
       }
