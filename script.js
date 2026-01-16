@@ -1,0 +1,102 @@
+/**
+ * NinjaPirate Studio - Main JavaScript
+ * Handles shared component injection and site interactions
+ */
+
+// Inject shared header and footer on page load
+document.addEventListener('DOMContentLoaded', async () => {
+  await injectComponents();
+  initMobileMenu();
+});
+
+/**
+ * Fetch and inject header and footer partials into the page
+ */
+async function injectComponents() {
+  try {
+    // Determine the base path based on current location
+    const basePath = getBasePath();
+    
+    // Inject header
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder) {
+      const headerResponse = await fetch(`${basePath}/partials/header.html`);
+      if (headerResponse.ok) {
+        headerPlaceholder.innerHTML = await headerResponse.text();
+        highlightActiveNav();
+      }
+    }
+    
+    // Inject footer
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+      const footerResponse = await fetch(`${basePath}/partials/footer.html`);
+      if (footerResponse.ok) {
+        footerPlaceholder.innerHTML = await footerResponse.text();
+      }
+    }
+    
+    // Re-initialize mobile menu after header is injected
+    initMobileMenu();
+  } catch (error) {
+    console.error('Error loading components:', error);
+  }
+}
+
+/**
+ * Highlight active navigation item based on current page
+ */
+function highlightActiveNav() {
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.main-nav a, .footer-nav a');
+  
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && (currentPath.includes(href) || 
+        (currentPath.endsWith('index.html') && link.classList.contains('nav-home')) ||
+        (currentPath === '/' && link.classList.contains('nav-home')))) {
+      link.style.color = 'var(--color-accent)';
+    }
+  });
+}
+
+/**
+ * Calculate the base path to root directory
+ */
+function getBasePath() {
+  const path = window.location.pathname;
+  
+  // Count directory depth from index.html location
+  // Remove filename if present
+  const pathWithoutFile = path.endsWith('.html') ? path.substring(0, path.lastIndexOf('/')) : path;
+  const depth = (pathWithoutFile.split('/').filter(p => p.length > 0).length);
+  
+  // If at root (index.html or root folder)
+  if (depth === 0 || depth === 1) return '.';
+  
+  // Go up directories based on depth
+  return '../'.repeat(depth - 1);
+}
+
+/**
+ * Initialize mobile menu toggle functionality
+ */
+function initMobileMenu() {
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.main-nav');
+  
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      toggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('active');
+        toggle.classList.remove('active');
+      }
+    });
+  }
+}
