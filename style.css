@@ -362,7 +362,7 @@ img {
 }
 
 .cta-button:hover {
-  transform: translateY(-7px) scale(1.05);
+  transform: translateY(-1px) scale(1.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   color: var(--color-accent-alt);
 }
@@ -438,9 +438,9 @@ img {
   height: auto;
   z-index: 1; /* behind the button */
   pointer-events: none; /* don't block hover */
-  transition: transform var(--transition-fast) cubic-bezier(0.22, 1, 0.36, 1) 0.08s, opacity var(--transition-fast) ease-out 0.08s;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s, opacity var(--transition-fast) ease-out 0.08s;
   will-change: transform, opacity;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4)) brightness(1.2);
+  filter: drop-shadow(0 8px 16px rgba(236, 231, 231, 0.4)) brightness(1.6);
 }
 
 .cta-wrapper:hover .cta-hover-banner {
