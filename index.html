@@ -18,7 +18,10 @@
     <div class="hero-content">
       <h1>Ninja Pirate Robot Alien</h1>
       <p class="hero-tagline">Small games, big energy, and a whole lot of charming chaos.</p>
-      <a class="cta-button" href="sackjack-island/index.html" style="color: #fff;">Explore Sackjack Island (Under development)</a>
+      <div class="cta-wrapper">
+        <img src="assets/images/hmpganim/battle_banner1.png" alt="Battle Banner" class="cta-hover-banner" onerror="this.style.display='none'">
+        <a class="cta-button" href="sackjack-island/index.html" style="color: #fff;">Explore Sackjack Island (Under development)</a>
+      </div>
     </div>
   </section>
 
@@ -30,9 +33,11 @@
         
         <!-- Sackjack Island Card -->
         <div class="card">
-          <div class="card-image">
-            <img src="assets/images/sackjack-thumb.png" alt="Sackjack Island" onerror="this.parentElement.innerHTML='🏝️'">
-          </div>
+          <a href="sackjack-island/index.html" class="card-image-link">
+            <div class="card-image">
+              <img src="assets/images/SackjackIsland_Title_1-18-26.png" alt="Sackjack Island" onerror="this.parentElement.innerHTML='🏝️'">
+            </div>
+          </a>
           <h3 class="card-title">Sackjack Island</h3>
           <a href="devlogs/index.html" aria-label="View devlogs">
             <p class="card-description">A blackjack‑battle mashup where potato characters duke it out using cards, luck, and pure delusion!</p>
@@ -66,6 +71,21 @@
   <!-- Footer Placeholder - Injected via JS -->
   <div id="footer-placeholder"></div>
 
+  <script>
+    // Ensure banner displays only if the file loads
+    (function() {
+      var banner = document.querySelector('.cta-hover-banner');
+      if (!banner) return;
+      var test = new Image();
+      test.onload = function() {
+        banner.style.display = '';
+      };
+      test.onerror = function() {
+        banner.style.display = 'none';
+      };
+      test.src = 'assets/images/hmpganim/battle_banner1.png';
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

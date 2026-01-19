@@ -30,16 +30,12 @@
       </p>
 
       <div class="gallery-grid">
-        <!-- Placeholder Gallery Items -->
+        <!-- Gallery Items with Images -->
         <div class="gallery-item">
-          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff0066, #ff6b35); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
-            🏝️
-          </div>
+          <img src="../assets/images/SackjackIsland_Title_1-18-26.png" alt="Sackjack Island Title" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="gallery-item">
-          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00ccff, #0066ff); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
-            🌴
-          </div>
+          <img src="../assets/images/Potatoes_1-18-26.png" alt="Potato Characters" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="gallery-item">
           <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffcc00, #ff6b35); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
@@ -121,5 +117,20 @@
   <div id="footer-placeholder"></div>
 
   <script src="../script.js"></script>
+  <script>
+    // Gallery lightbox functionality
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', function() {
+        const modal = document.createElement('div');
+        modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;z-index:1000;cursor:pointer;';
+        const fullImg = document.createElement('img');
+        fullImg.src = this.src;
+        fullImg.style.cssText = 'max-width:90%;max-height:90%;object-fit:contain;border-radius:8px;';
+        modal.appendChild(fullImg);
+        modal.addEventListener('click', () => modal.remove());
+        document.body.appendChild(modal);
+      });
+    });
+  </script>
 </body>
 </html>
