@@ -7,6 +7,10 @@
   <meta name="description" content="Welcome to Sackjack Island — the only place where potatoes settle their differences with blackjack instead of seasoning. Every spud here thinks they’re the next big champion, and you’re the newest challenger. Play fast rounds, unlock new characters, and work your way to the top of the island’s legendary tournament.">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -14,32 +18,32 @@
   <div id="header-placeholder"></div>
 
   <!-- Game Hero Section -->
-  <section class="hero" style="background: linear-gradient(135deg, #00ccff, #ff0066, #ffcc00);">
+  <section class="hero bg-gradient-game">
     <div class="hero-content">
-      <h1 style="color: #fff; text-shadow: 2px 2px 4px #000;">Sackjack Island</h1>
-      <h2 class="hero-tagline" style="color: #ffdd00; font-weight: 700; text-shadow: 0 1px 0 #000, 0 3px 8px rgba(0,0,0,0.75);">
+      <h1 class="text-white text-shadow-strong">Sackjack Island</h1>
+      <h2 class="hero-tagline text-highlight-game">
         Welcome to Sackjack Island — the only place where potatoes settle their differences with blackjack instead of seasoning. Every spud here thinks they’re the next big champion, and you’re the newest challenger. Play fast rounds, unlock new characters, and work your way to the top of the island’s legendary tournament.
       </h2>
     </div>
   </section>
 
   <!-- Quick Navigation -->
-  <section class="section" style="padding: 2rem 0;">
+  <section class="section section-padding-sm">
     <div class="container">
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        <a href="about.html" class="card" style="text-align: center;">
-          <div class="card-image" style="height: 100px; font-size: 2.5rem;">📖</div>
-          <h3 class="card-title" style="font-size: 1.4rem;">About</h3>
+      <div class="card-grid card-grid-small">
+        <a href="about.html" class="card text-center">
+          <div class="card-image card-image-small">📖</div>
+          <h3 class="card-title card-title-small">About</h3>
           <p class="card-description">Learn about the game</p>
         </a>
-        <a href="gallery.html" class="card" style="text-align: center;">
-          <div class="card-image" style="height: 100px; font-size: 2.5rem;">🖼️</div>
-          <h3 class="card-title" style="font-size: 1.4rem;">Gallery</h3>
+        <a href="gallery.html" class="card text-center">
+          <div class="card-image card-image-small">🖼️</div>
+          <h3 class="card-title card-title-small">Gallery</h3>
           <p class="card-description">View screenshots & art</p>
         </a>
-        <a href="demo.html" class="card" style="text-align: center;">
-          <div class="card-image" style="height: 100px; font-size: 2.5rem;">🎮</div>
-          <h3 class="card-title" style="font-size: 1.4rem;">Demo</h3>
+        <a href="demo.html" class="card text-center">
+          <div class="card-image card-image-small">🎮</div>
+          <h3 class="card-title card-title-small">Demo</h3>
           <p class="card-description">Play in your browser</p>
         </a>
       </div>
@@ -50,8 +54,8 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">About the Game</h2>
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 1.2rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+      <div class="game-overview-container">
+        <p class="game-overview-text">
           Sackjack Island is a card game where potatoes battle it out in fast-paced blackjack tournaments.
         </p>
         <a href="about.html" class="cta-button">Learn More</a>
@@ -60,7 +64,7 @@
   </section>
 
   <!-- Latest Updates -->
-  <section class="section" style="background: linear-gradient(180deg, transparent, rgba(255, 0, 102, 0.05));">
+  <section class="section section-subtle">
     <div class="container">
       <h2 class="section-title">Latest Updates</h2>
       <div class="card-grid">
@@ -69,7 +73,7 @@
           <h3 class="card-title">Building the Island</h3>
           <p class="article-meta">January 10, 2026 • Devlog #002</p>
           <p class="card-description">
-            Diving into world-building for Sackjack Island. Exploring modular level design 
+            Diving into world-building for Sackjack Island. Exploring modular level design
             and environmental storytelling.
           </p>
           <a class="card-link" href="../devlogs/posts/002.html">Read Devlog</a>

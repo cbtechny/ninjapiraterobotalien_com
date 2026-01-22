@@ -7,6 +7,10 @@
   <meta name="description" content="Ninja Pirate Robot Alien creates vibrant, explosive games with modular design. Explore our current projects including Sackjack Island and interactive demos.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -20,7 +24,7 @@
       <p class="hero-tagline">Small games, big energy, and a whole lot of charming chaos.</p>
       <div class="cta-wrapper">
         <img src="assets/images/hmpganim/battle_banner1.png" alt="Battle Banner" class="cta-hover-banner" onerror="this.style.display='none'">
-        <a class="cta-button" href="sackjack-island/index.html" style="color: #fff;">Explore Sackjack Island (Under development)</a>
+        <a class="cta-button text-white" href="sackjack-island/index.html">Explore Sackjack Island (Under development)</a>
       </div>
     </div>
   </section>
@@ -30,7 +34,7 @@
     <div class="container">
       <h2 class="section-title">Current Projects</h2>
       <div class="card-grid">
-        
+
         <!-- Sackjack Island Card -->
         <div class="card">
           <a href="sackjack-island/index.html" class="card-image-link">
@@ -58,34 +62,19 @@
   </section>
 
   <!-- About Studio Section -->
-  <section class="section" style="background: linear-gradient(180deg, transparent, rgba(255, 0, 102, 0.05));">
+  <section class="section section-subtle">
     <div class="container text-center">
       <h2 class="section-title">About Our Studio</h2>
-      <p style="margin: 0 auto; max-width: 700px; font-size: 1.1rem; color: var(--color-text-muted);">
+      <p class="about-text">
         I make quirky, modular games fueled by bright colors, silly ideas, and a love for experimenting. If you enjoy devlogs, behind‑the‑scenes breakdowns, and watching games evolve in the open, you’ll feel right at home — and if a game clicks with you, you’re welcome to snag it and join the fun. <br>-Chris @ Ninja Pirate Robot Alien ( <a href="mailto:c@ninjapiraterobotalien.com">c@ninjapiraterobotalien.com</a> )</br>
       </p>
-      <a class="cta-button" href="studio/about.html" style="margin-top: 2rem;">Learn More About Us</a>
+      <a class="cta-button mt-md" href="studio/about.html">Learn More About Us</a>
     </div>
   </section>
 
   <!-- Footer Placeholder - Injected via JS -->
   <div id="footer-placeholder"></div>
 
-  <script>
-    // Ensure banner displays only if the file loads
-    (function() {
-      var banner = document.querySelector('.cta-hover-banner');
-      if (!banner) return;
-      var test = new Image();
-      test.onload = function() {
-        banner.style.display = '';
-      };
-      test.onerror = function() {
-        banner.style.display = 'none';
-      };
-      test.src = 'assets/images/hmpganim/battle_banner1.png';
-    })();
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
