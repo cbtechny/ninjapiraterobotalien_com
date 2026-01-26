@@ -31,6 +31,7 @@ async function injectComponents() {
           })
           .then(html => {
             headerPlaceholder.innerHTML = html;
+            runScripts(headerPlaceholder);
             highlightActiveNav();
           })
           .catch(error => console.error('Header load error:', error))
@@ -121,4 +122,20 @@ function initMobileMenu() {
     // Mark as initialized after all event listeners are successfully added
     mobileMenuInitialized = true;
   }
+}
+
+/**
+ * Execute scripts found within a container
+ * Necessary because innerHTML injection doesn't execute scripts automatically
+ */
+function runScripts(container) {
+  const scripts = container.querySelectorAll('script');
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement('script');
+    Array.from(oldScript.attributes).forEach(attr => {
+      newScript.setAttribute(attr.name, attr.value);
+    });
+    newScript.textContent = oldScript.textContent;
+    oldScript.parentNode.replaceChild(newScript, oldScript);
+  });
 }
