@@ -30,3 +30,4 @@ To fully understand the project scope before beginning implementation, agents sh
 4. `03-secondary-pages.md` (The "Supporting Experience")
 5. `04-design-system.md` (The "Look and Feel")
 6. `05-implementation-brief.md` (The "How-To" and Final Specs)
+7. `artwork-inventory.md` (Visual Asset Source of Truth)
