@@ -1,38 +1,74 @@
 # 03: Secondary Pages
 
-This document details the architecture for the DEVLOG and consolidated ABOUT pages, including plans for potential future extensibility.
+This document details the architecture for the DEVLOG and consolidated ABOUT pages, ensuring they support the Sackjack Island-centric "Digital Press Kit" strategy.
 
-## Secondary Page Overview
-The DEVLOG and ABOUT pages are the supporting experiences that provide deeper context for the studio and the game.
+# Devlog Page Blueprint
 
-## DEVLOG Page Architecture
-- **Blog Feed**: A modernized list of posts with improved readability and visual impact.
-- **Categorization**: Simple tags for filtering (e.g., "Development," "Art," "Technical").
-- **Pagination**: Minimal, performance-friendly navigation for browsing past updates.
-- **Goal**: Maintain the transparency of development while matching the new design system.
+The DEVLOG serves as the heartbeat of the project, demonstrating active momentum and transparency to fans and potential partners.
 
-### Post Layout
-- **Clear Typography**: Focus on long-form content readability.
-- **Image Integration**: Easy addition of screenshots and concept art within posts.
-- **Social Sharing**: Minimal social share buttons.
+## Content Hierarchy
+1.  **Hero Title**: High-energy "DEVLOG" heading with a brief mission statement (e.g., "Behind the scenes of Sackjack Island").
+2.  **Featured Update**: A single, full-width high-impact card showcasing the most significant recent milestone.
+3.  **Latest Buzz**: A "micro-blog" section for quick snippets, technical wins, or social-style updates that don't require full articles.
+4.  **Update Archive**: A clean, filterable grid of historical posts.
 
-## ABOUT Page Architecture (Consolidated)
-- **Studio Story**: Brief overview of Ninja Pirate Robot Alien Games.
-- **About Sackjack**: A "game fact sheet" section providing background on the project.
-- **Contact Info**: Integrated section with contact details and potentially a simple form.
-- **Digital Press Kit (DPK) Links**: Downloadable assets or a direct link to a press kit folder (e.g., Google Drive/Dropbox).
+## Section Structure & Behavior
+-   **Featured Card**: Uses a large background image from the post, bold headline, and a "Read Milestone" button.
+-   **Latest Buzz (Manual Feed)**:
+    -   **Concept**: A dedicated area for short-form updates (max 280 chars).
+    -   **Implementation**: For now, this is a manually updated HTML block in the page source. It provides a "Live" feel without complex backend requirements.
+-   **Post Grid**:
+    -   **Visuals**: Cards use a 16:9 thumbnail, date, and a 2-line excerpt.
+    -   **Grid**: 1 column on mobile, 3 columns on desktop (768px+).
+    -   **Logic**: Ordered by date descending.
 
-### Contact Integration
-- **Direct Email**: Simple `mailto:` link or a lightweight contact form.
-- **Social Links**: Icons or text links to key platforms (e.g., Twitter, Discord).
+## Featured Update Logic
+The most recent post (or a post manually flagged in the HTML) is extracted from the grid and placed into the Hero/Featured slot to ensure the page feels fresh upon every visit.
 
-## Future Extensibility
-While the target structure is 3 pages, this blueprint allows for the addition of subpages should the project scale:
-- **Individual Case Studies**: Potential future pages for specific features.
-- **Careers/Join Us**: Dedicated page for future studio growth.
-- **Detailed Press Kit**: Expansion of the DPK into its own page if needed.
+## CTA Opportunities
+-   **Post-End CTA**: Every devlog post should end with a "Return to Sackjack Island" button leading to the HOME page.
+-   **Page-Bottom CTA**: A "Stay in the Loop" section encouraging newsletter signups or social follows.
 
-## Layout Considerations
-- **Consistent Headers/Footers**: Use the same partials system as the HOME page.
-- **Performance**: Ensure fast loading for image-heavy devlog posts.
-- **Responsive Design**: Consistent mobile-first approach.
+# About Page Blueprint
+
+The ABOUT page is the "Fact Sheet" of the studio. It consolidates studio identity, game specifics, and contact info into a professional, press-ready summary.
+
+## Content Hierarchy
+1.  **Sackjack Island Fact Sheet**: "The Game" – Core pitch, platform info, and key features.
+2.  **Studio Identity**: "The Team" – Mission statement and philosophy (condensed from current `studio/about.html`).
+3.  **Contact & Socials**: "Get In Touch" – Clear, direct links and the consolidated FAQ.
+4.  **Press Assets**: "Digital Press Kit" – A prominent link to a downloadable asset pack.
+
+## Organization of Info
+-   **Studio vs. Creator**: Focus on the *Studio* brand (Ninja Pirate Robot Alien) as the primary entity, with a brief "The Humans Behind the Spuds" section for personal identity.
+-   **Practical over Personal**: Keep the "Personal Story" restricted to a single section. The rest of the page should be highly scan-able and informational.
+-   **Promotional vs. Informational**:
+    -   **Promotional**: The Game Fact Sheet and Studio Philosophy use vibrant visuals and "hook" copy.
+    -   **Informational**: FAQ, Contact links, and Technical Stack use clean, high-contrast layouts for readability.
+
+## Contact & Socials Integration
+-   Consolidate all links from `studio/contact.html` into a single, high-visibility "Communication Hub" section at the bottom of the page.
+-   Include the current FAQ items here to reduce friction for common inquiries.
+
+# Role Separation
+
+| Feature | DEVLOG | ABOUT |
+| :--- | :--- | :--- |
+| **Primary Audience** | Returning fans, Discord community, technical peers. | Press, potential partners, first-time curious players. |
+| **Content Tone** | Iterative, "Work-in-Progress," conversational. | Authoritative, "Fact-Sheet," professional. |
+| **Update Frequency** | High (Weekly/Bi-weekly). | Low (Milestone-based). |
+| **Core Goal** | Build trust and show momentum. | Provide clarity and facilitate contact. |
+
+# Secondary Pages Handoff For Codex
+
+## Implementation Checklist
+-   [ ] **Consolidation**: Merge content from `studio/about.html`, `studio/contact.html`, and `sackjack-island/about.html` into the new `/about/index.html`.
+-   [ ] **Latest Buzz Component**: Create a reusable CSS class for "Buzz" items that can be easily updated in the HTML.
+-   [ ] **Devlog Grid**: Refactor the current `devlogs/index.html` to support the "Featured + Grid" layout.
+-   [ ] **Asset Links**: Ensure the "Digital Press Kit" link is prominent and points to a valid destination.
+-   [ ] **FAQ Migration**: Move FAQ content from `studio/contact.html` to the bottom of the new ABOUT page.
+
+## Technical Notes
+-   Keep all styles within the global `style.css` using utility classes.
+-   Use the existing `#header-placeholder` and `#footer-placeholder` for consistency.
+-   Avoid adding new JS dependencies for the Devlog grid; stick to CSS Grid/Flexbox.
