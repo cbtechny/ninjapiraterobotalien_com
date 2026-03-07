@@ -17,8 +17,14 @@
   <header class="hero-billboard">
     <div class="hero-media">
       <img src="/assets/images/placeholders/hero-home-placeholder.png" alt="Sackjack Island hero banner showing a dramatic card battle setup" width="1920" height="1080">
+
       <div class="container hero-overlay">
-        <div class="panel">
+        <button class="hero-info-trigger" id="hero-info-trigger" type="button" aria-controls="hero-info-panel" aria-expanded="false">
+          Sackjack Info
+        </button>
+
+        <aside class="hero-info-drawer panel" id="hero-info-panel" aria-hidden="true" aria-label="Sackjack Island overview">
+          <button class="hero-info-close" id="hero-info-close" type="button" aria-label="Close Sackjack info panel">×</button>
           <p class="kicker">Flagship title</p>
           <h1>Sackjack Island</h1>
           <p>On this island, potatoes don't bake—they battle. Push your luck, chain special cards, and outplay weird contenders in rapid-fire blackjack duels.</p>
@@ -26,7 +32,7 @@
             <a class="btn btn-primary" href="/devlog/index.html">Track Development</a>
             <a class="btn btn-secondary" href="/about/index.html#support">Wishlist &amp; Support</a>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   </header>
