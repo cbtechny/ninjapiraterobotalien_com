@@ -51,9 +51,9 @@ ul{padding-left:1.25rem}
 .mobile-menu-toggle{display:none;background:none;border:1px solid var(--border);padding:.4rem;min-width:44px;min-height:44px}
 .mobile-menu-toggle span{display:block;width:22px;height:2px;background:#fff;margin:4px 0}
 .hero-billboard{position:relative;border-top:2px solid var(--yellow);border-bottom:2px solid var(--pink)}
-.hero-media{position:relative;min-height:58vh;display:flex;align-items:flex-end;background:#101010}
-.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
-.hero-overlay{position:relative;z-index:1;padding:clamp(1.2rem,4vw,2.2rem);max-width:100%;min-height:58vh;display:flex;align-items:flex-start;justify-content:flex-start}
+.hero-media{position:relative;display:flex;align-items:flex-end;background:#101010}
+.hero-media img{position:relative;inset:auto;width:100%;height:auto;object-fit:contain;opacity:1}
+.hero-overlay{position:absolute;inset:0;z-index:1;padding:clamp(1.2rem,4vw,2.2rem);max-width:100%;display:flex;align-items:flex-start;justify-content:flex-start}
 .hero-info-trigger{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.45rem .8rem;border:1px solid var(--yellow);background:rgba(17,17,17,.86);color:#fff;font-family:var(--font-head);letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
 .hero-info-trigger:hover,.hero-info-trigger:focus-visible{border-color:var(--pink);color:var(--yellow)}
 .hero-info-drawer{position:absolute;top:1rem;right:1rem;width:clamp(440px,38vw,620px);max-width:calc(100vw - 2rem);min-height:320px;display:flex;flex-direction:column;gap:.6rem;background:rgba(0,0,0,.9);transform:translateX(108%);opacity:0;pointer-events:none;transition:transform .25s ease,opacity .25s ease;padding:1rem 1rem 1.1rem}
@@ -98,6 +98,7 @@ ul{padding-left:1.25rem}
   .main-nav.active ul{flex-direction:column}
   .mobile-menu-toggle{display:block}
   .hero-media{min-height:70vh}
+  .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero-overlay{min-height:70vh;align-items:flex-end}
   .hero-info-drawer{left:1rem;right:1rem;top:auto;bottom:1rem;width:auto;max-width:none;min-height:0;transform:translateY(115%)}
   .hero-info-drawer.is-open{transform:translateY(0)}
