@@ -1,124 +1,133 @@
-/**
- * NinjaPirate Studio - Main JavaScript
- * Handles shared component injection and site interactions
- */
-
-// Track if mobile menu has been initialized to avoid duplicate listeners
 let mobileMenuInitialized = false;
 
-// Inject shared header and footer on page load
 document.addEventListener('DOMContentLoaded', async () => {
   await injectComponents();
+  initHeroInfoDrawer();
+  await renderLatestIntel();
 });
 
-/**
- * Fetch and inject header and footer partials into the page
- */
 async function injectComponents() {
-  try {
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    const footerPlaceholder = document.getElementById('footer-placeholder');
+  const headerPlaceholder = document.getElementById('header-placeholder');
+  const footerPlaceholder = document.getElementById('footer-placeholder');
+  const tasks = [];
 
-    const promises = [];
-
-    // Fetch header
-    if (headerPlaceholder) {
-      promises.push(
-        fetch('/partials/header.html')
-          .then(response => {
-             if (response.ok) return response.text();
-             throw new Error('Failed to load header');
-          })
-          .then(html => {
-            headerPlaceholder.innerHTML = html;
-            highlightActiveNav();
-          })
-          .catch(error => console.error('Header load error:', error))
-      );
-    }
-
-    // Fetch footer
-    if (footerPlaceholder) {
-      promises.push(
-        fetch('/partials/footer.html')
-          .then(response => {
-            if (response.ok) return response.text();
-            throw new Error('Failed to load footer');
-          })
-          .then(html => {
-            footerPlaceholder.innerHTML = html;
-          })
-          .catch(error => console.error('Footer load error:', error))
-      );
-    }
-
-    // Wait for all injections to complete
-    await Promise.all(promises);
-
-    // Re-initialize mobile menu after header is injected
-    initMobileMenu();
-  } catch (error) {
-    console.error('Error loading components:', error);
+  if (headerPlaceholder) {
+    tasks.push(fetch('/partials/header.html').then(r => r.text()).then(html => {
+      headerPlaceholder.innerHTML = html;
+      highlightActiveNav();
+      initMobileMenu();
+    }).catch(console.error));
   }
+
+  if (footerPlaceholder) {
+    tasks.push(fetch('/partials/footer.html').then(r => r.text()).then(html => {
+      footerPlaceholder.innerHTML = html;
+    }).catch(console.error));
+  }
+
+  await Promise.all(tasks);
 }
 
-/**
- * Highlight active navigation item based on current page
- */
 function highlightActiveNav() {
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.main-nav a, .footer-nav a');
-
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && (currentPath.includes(href) ||
-        (currentPath.endsWith('index.html') && link.classList.contains('nav-home')) ||
-        (currentPath === '/' && link.classList.contains('nav-home')))) {
-      link.style.color = 'var(--color-accent)';
+  const path = window.location.pathname;
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    const href = link.getAttribute('href') || '';
+    if ((path === '/' || path.endsWith('/index.html')) && href === '/index.html') {
+      link.classList.add('is-active');
+    }
+    if (path.startsWith('/devlog') && href === '/devlog/index.html') {
+      link.classList.add('is-active');
+    }
+    if (path.startsWith('/about') && href === '/about/index.html') {
+      link.classList.add('is-active');
     }
   });
 }
 
-/**
- * Initialize mobile menu toggle functionality
- */
 function initMobileMenu() {
-  // Prevent duplicate initialization
-  if (mobileMenuInitialized) {
-    return;
-  }
-
+  if (mobileMenuInitialized) return;
   const toggle = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.main-nav');
+  if (!toggle || !nav) return;
 
-  if (toggle && nav) {
-    // Add click event to toggle menu
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      nav.classList.toggle('active');
-      toggle.classList.toggle('active');
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('active');
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
     });
+  });
 
-    // Close menu when clicking on nav items
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        toggle.classList.remove('active');
-      });
-    });
+  mobileMenuInitialized = true;
+}
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      const isToggleOrNav = toggle.contains(e.target) || nav.contains(e.target);
-      if (!isToggleOrNav && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        toggle.classList.remove('active');
-      }
-    });
+async function renderLatestIntel() {
+  const mount = document.getElementById('latest-intel-list');
+  if (!mount) return;
 
-    // Mark as initialized after all event listeners are successfully added
-    mobileMenuInitialized = true;
+  const posts = [
+    { id: '002', url: '/devlogs/posts/002.html' },
+    { id: '001', url: '/devlogs/posts/001.html' }
+  ];
+
+  try {
+    const parsed = await Promise.all(posts.map(async post => {
+      const text = await fetch(post.url).then(r => r.text());
+      const title = text.match(/<h1>(.*?)<\/h1>/i)?.[1] || `Devlog #${post.id}`;
+      const meta = text.match(/<p class="article-meta">(.*?)<\/p>/i)?.[1] || '';
+      const date = meta.split('•')[0]?.trim() || 'Recent';
+      return { ...post, title, date };
+    }));
+
+    mount.innerHTML = parsed.map(item =>
+      `<a href="${item.url}"><strong>${item.title}</strong><br><span class="meta">${item.date}</span></a>`
+    ).join('');
+  } catch (err) {
+    mount.innerHTML = '<a href="/devlog/index.html"><strong>Read the latest updates</strong></a>';
   }
+}
+
+
+function initHeroInfoDrawer() {
+  const trigger = document.getElementById('hero-info-trigger');
+  const panel = document.getElementById('hero-info-panel');
+  const close = document.getElementById('hero-info-close');
+
+  if (!trigger || !panel || !close) return;
+
+  const openPanel = () => {
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden', 'false');
+    trigger.setAttribute('aria-expanded', 'true');
+    close.focus();
+  };
+
+  const closePanel = () => {
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.focus();
+  };
+
+  trigger.addEventListener('click', () => {
+    const isOpen = panel.classList.contains('is-open');
+    if (isOpen) {
+      closePanel();
+      return;
+    }
+    openPanel();
+  });
+
+  close.addEventListener('click', closePanel);
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+      closePanel();
+    }
+  });
 }
