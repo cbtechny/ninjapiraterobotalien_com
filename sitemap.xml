@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ninjapiraterobotalien.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ninjapiraterobotalien.com/devlog/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ninjapiraterobotalien.com/about/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ninjapiraterobotalien.com/sackjack-island/gallery.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ninjapiraterobotalien.com/devlogs/posts/001.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ninjapiraterobotalien.com/devlogs/posts/002.html</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
