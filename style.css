@@ -123,6 +123,7 @@ ul{padding-left:1.25rem}
 .media-frame img{width:100%;height:100%;object-fit:cover}
 .card{display:flex;flex-direction:column;gap:.7rem;height:100%}
 .roster .media-frame{aspect-ratio:3/4}
+.roster-grid{max-width:1040px;margin:0 auto;gap:clamp(1.5rem,3vw,2.5rem);padding-top:.8rem}
 .stat{font-size:.9rem;color:var(--yellow);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
 .cta-strip{background:var(--yellow);color:#171717;border-top:2px solid var(--pink);border-bottom:2px solid var(--pink)}
 .cta-strip .inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}
