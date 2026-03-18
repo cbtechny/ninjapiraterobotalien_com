@@ -144,17 +144,21 @@
 
     <section class="section">
       <div class="container grid-2">
-        <article class="panel card">
-          <p class="kicker">Latest development preview</p>
-          <h2>Latest Intel</h2>
-          <p>Fresh notes from active builds, mechanics tuning, and visual iteration.</p>
-          <div id="latest-intel-list" class="latest-list">
-            <a href="/devlog/index.html"><strong>Read the latest updates</strong></a>
+        <article class="split-card">
+          <div class="split-card-content panel card">
+            <p class="kicker">Latest development preview</p>
+            <h2>Latest Intel</h2>
+            <p>Fresh notes from active builds, mechanics tuning, and visual iteration.</p>
+            <div id="latest-intel-list" class="latest-list">
+              <a href="/devlog/index.html"><strong>Read the latest updates</strong></a>
+            </div>
           </div>
-        </article>
-        <article class="panel card">
-          <div class="media-frame"><img src="/assets/images/placeholders/devlog-feature-placeholder.png" alt="Development preview placeholder image" width="1280" height="720"></div>
-          <p class="placeholder-note">Placeholder panel wired for latest in-progress gameplay art.</p>
+          <div class="split-card-media">
+            <picture style="display: block; width: 100%; height: 100%;">
+              <source srcset="/assets/images/homepage_imgs/dev_banner.webp" type="image/webp">
+              <img src="/assets/images/homepage_imgs/dev_banner_fallback.jpg" alt="Latest development preview">
+            </picture>
+          </div>
         </article>
       </div>
     </section>
