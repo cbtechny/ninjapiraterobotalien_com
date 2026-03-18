@@ -41,6 +41,22 @@ ul{padding-left:1.25rem}
 .panel{background:var(--panel);border:2px solid var(--border-gold);color:var(--bg-primary);padding:1.25rem;transition:transform .2s ease,border-color .2s ease}
 .panel:hover{transform:translateY(-4px);border-color:var(--accent-primary)}
 .panel p, .panel h1, .panel h2, .panel h3 { color: inherit; }
+.panel h2,
+.panel h3 {
+  color: var(--accent-primary);
+  text-shadow: 0 1px 1px rgba(15, 61, 62, 0.35);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .panel h2,
+  .panel h3 {
+    background: linear-gradient(135deg, var(--accent-primary) 20%, #ffd84a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
 .kicker{font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--accent-primary)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:.7rem 1.05rem;border:2px solid var(--text-primary);font-weight:700;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}
 .btn-primary{background:linear-gradient(135deg, var(--cta), var(--accent-primary));color:var(--bg-primary);border-color:var(--border-gold)}
@@ -235,4 +251,42 @@ ul{padding-left:1.25rem}
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Devlog hub palette/contrast overrides (scoped to /devlog/index.html only) */
+body.devlog-hub-page {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+body.devlog-hub-page .container > h1,
+body.devlog-hub-page section.section > h2 {
+  color: var(--text-primary);
+}
+
+body.devlog-hub-page .panel {
+  background: var(--surface);
+  color: var(--bg-primary);
+}
+
+body.devlog-hub-page .panel p {
+  color: var(--bg-primary);
+}
+
+body.devlog-hub-page .panel .kicker,
+body.devlog-hub-page .panel .meta {
+  color: var(--bg-secondary);
+}
+
+body.devlog-hub-page .panel .btn-secondary {
+  border-color: var(--bg-primary);
+  color: var(--bg-primary);
+  background: rgba(15, 61, 62, 0.06);
+}
+
+body.devlog-hub-page .panel .btn-secondary:hover,
+body.devlog-hub-page .panel .btn-secondary:focus-visible {
+  background: var(--bg-primary);
+  color: var(--surface);
+  border-color: var(--bg-primary);
 }
