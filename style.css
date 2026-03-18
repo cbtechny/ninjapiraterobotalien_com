@@ -3,6 +3,7 @@
   /* Tropical Beach Palette */
   --bg-primary: #0F3D3E;      /* Deep ocean teal */
   --bg-secondary: #145C5C;    /* Dark turquoise / sea depth */
+  --nav-bg: #060b15;          /* Near-black navy for persistent navbar */
   --surface: #E6C28B;         /* Sandy tan / map surface */
   --accent-primary: #FF7A3C;  /* Sunset orange */
   --accent-secondary: #2E8B57; /* Palm green */
@@ -68,7 +69,7 @@ ul{padding-left:1.25rem}
 .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.site-header{background:var(--bg-secondary);border-bottom:2px solid var(--border-gold)}
+.site-header{background:var(--nav-bg);border-bottom:2px solid var(--border-gold)}
 .header-content{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
 .brand{display:flex;flex-direction:column;text-decoration:none}
 .brand-title{font-family:var(--font-head);color:var(--text-primary);font-size:1.6rem;letter-spacing:.06em;line-height:1}
@@ -196,7 +197,7 @@ ul{padding-left:1.25rem}
 @media (max-width: 768px){
   #header-placeholder{min-height:62px}
   .main-nav{display:none}
-  .main-nav.active{display:block;position:absolute;top:100%;right:1rem;left:1rem;background:var(--bg-secondary);border:1px solid var(--accent-primary);padding:.7rem}
+  .main-nav.active{display:block;position:absolute;top:100%;right:1rem;left:1rem;background:var(--nav-bg);border:1px solid var(--accent-primary);padding:.7rem}
   .main-nav.active ul{flex-direction:column}
   .mobile-menu-toggle{display:block}
   .hero-media{min-height:70vh;background:var(--bg-primary)}
