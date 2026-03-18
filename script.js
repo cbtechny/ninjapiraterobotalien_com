@@ -29,17 +29,26 @@ async function injectComponents() {
 }
 
 function highlightActiveNav() {
+  const normalize = (p) => p.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
   const path = window.location.pathname;
+  const currentPath = normalize(path);
+
   document.querySelectorAll('.main-nav a').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    if ((path === '/' || path.endsWith('/index.html')) && href === '/index.html') {
+    const hrefAttr = link.getAttribute('href') || '';
+    const href = normalize(hrefAttr);
+    link.classList.remove('is-active');
+
+    // Exact match
+    if (currentPath === href) {
       link.classList.add('is-active');
     }
-    if (path.startsWith('/devlog') && href === '/devlog/index.html') {
-      link.classList.add('is-active');
-    }
-    if (path.startsWith('/about') && href === '/about/index.html') {
-      link.classList.add('is-active');
+    // Sub-path match (e.g., /devlogs/posts/ matches /devlog)
+    else if (href !== '/') {
+      const root = href.split('/')[1]; // e.g., 'devlog' from '/devlog'
+      const pathRoot = path.split('/')[1];
+      if (root && (pathRoot === root || pathRoot === root + 's')) {
+        link.classList.add('is-active');
+      }
     }
   });
 }
