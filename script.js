@@ -2,7 +2,6 @@ let mobileMenuInitialized = false;
 
 document.addEventListener('DOMContentLoaded', async () => {
   await injectComponents();
-  initHeroInfoDrawer();
   await renderLatestIntel();
 });
 
@@ -99,44 +98,4 @@ async function renderLatestIntel() {
   } catch (err) {
     mount.innerHTML = '<a href="/devlog/index.html"><strong>Read the latest updates</strong></a>';
   }
-}
-
-
-function initHeroInfoDrawer() {
-  const trigger = document.getElementById('hero-info-trigger');
-  const panel = document.getElementById('hero-info-panel');
-  const close = document.getElementById('hero-info-close');
-
-  if (!trigger || !panel || !close) return;
-
-  const openPanel = () => {
-    panel.classList.add('is-open');
-    panel.setAttribute('aria-hidden', 'false');
-    trigger.setAttribute('aria-expanded', 'true');
-    close.focus();
-  };
-
-  const closePanel = () => {
-    panel.classList.remove('is-open');
-    panel.setAttribute('aria-hidden', 'true');
-    trigger.setAttribute('aria-expanded', 'false');
-    trigger.focus();
-  };
-
-  trigger.addEventListener('click', () => {
-    const isOpen = panel.classList.contains('is-open');
-    if (isOpen) {
-      closePanel();
-      return;
-    }
-    openPanel();
-  });
-
-  close.addEventListener('click', closePanel);
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && panel.classList.contains('is-open')) {
-      closePanel();
-    }
-  });
 }
