@@ -335,3 +335,38 @@ body.devlog-hub-page .panel .btn-secondary:focus-visible {
     transition: none !important;
   }
 }
+
+/* About page: simple Meta social links */
+.meta-social-links {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.meta-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 40px;
+  text-decoration: none;
+  color: var(--bg-primary);
+}
+
+.meta-social-link:hover,
+.meta-social-link:focus-visible {
+  color: var(--accent-primary);
+}
+
+.meta-social-link img {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.meta-social-link span {
+  font-weight: 700;
+  line-height: 1;
+}
