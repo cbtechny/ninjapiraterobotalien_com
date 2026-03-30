@@ -166,9 +166,33 @@ ul{padding-left:1.25rem}
 .hero-caption h1,.hero-caption p{color:var(--text-primary)}
 .hero-caption .kicker{color:#ffbf79}
 .hero-caption-actions{margin-top:.5rem}
+.hero-caption-dismiss{
+  position:absolute;
+  top:0.5rem;
+  right:0.5rem;
+  width:2rem;
+  height:2rem;
+  border:1px solid rgba(224,168,78,.7);
+  border-radius:999px;
+  background:rgba(6,11,21,.65);
+  color:var(--text-primary);
+  font-size:1.3rem;
+  line-height:1;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:background var(--ease-ui), border-color var(--ease-ui), transform var(--ease-ui);
+}
+.hero-caption-dismiss:hover,
+.hero-caption-dismiss:focus-visible{
+  background:rgba(255,79,90,.25);
+  border-color:var(--accent-primary);
+  transform:translateY(-1px);
+}
 .hero-social{
   position:absolute;
-  left:clamp(0.5rem,2.4vw,1.3rem);
+  left:clamp(0.2rem,1.2vw,0.7rem);
   bottom:clamp(0.45rem,2.2vw,1.2rem);
   z-index:4;
 }

@@ -3,6 +3,7 @@ let mobileMenuInitialized = false;
 document.addEventListener('DOMContentLoaded', async () => {
   await injectComponents();
   await renderLatestIntel();
+  initHeroCaptionDismiss();
 });
 
 async function injectComponents() {
@@ -72,6 +73,17 @@ function initMobileMenu() {
   });
 
   mobileMenuInitialized = true;
+}
+
+function initHeroCaptionDismiss() {
+  const caption = document.querySelector('.hero-caption');
+  const dismissBtn = document.querySelector('.hero-caption-dismiss');
+
+  if (!caption || !dismissBtn) return;
+
+  dismissBtn.addEventListener('click', () => {
+    caption.style.display = 'none';
+  });
 }
 
 async function renderLatestIntel() {
