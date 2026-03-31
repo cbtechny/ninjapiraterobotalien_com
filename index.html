@@ -20,6 +20,7 @@
   <meta property="twitter:description" content="Battle quirky potatoes in Sackjack Island, a casual card battler and blackjack strategy game from Ninja Pirate Robot Alien, the studio for fun indie games.">
   <meta property="twitter:image" content="https://ninjapiraterobotalien.com/assets/images/home/hero_banner.webp">
 
+  <link rel="preload" as="image" href="/assets/images/home/hero_banner.webp" fetchpriority="high">
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +32,7 @@
 
   <header class="hero-billboard hero-panel">
     <div class="hero-media">
-      <img src="/assets/images/home/hero_banner.webp" alt="Sackjack Island: A casual card battler and funny potato game showing characters in a dramatic blackjack battle" width="1920" height="1080" style="z-index: 1;">
+      <img src="/assets/images/home/hero_banner.webp" alt="Sackjack Island: A casual card battler and funny potato game showing characters in a dramatic blackjack battle" width="1920" height="1080" fetchpriority="high" decoding="async" style="z-index: 1;">
       <div class="hero-heat-layer" aria-hidden="true">
         <span class="hero-ember"></span>
         <span class="hero-ember hero-ember-b"></span>
@@ -59,7 +60,7 @@
                 aria-label="Facebook"
                 title="Facebook"
               >
-                <img src="/assets/images/about/brand_icons/Facebook_Logo_Primary.webp" alt="Facebook" width="40" height="40">
+                <img src="/assets/images/about/brand_icons/Facebook_Logo_Primary.webp" alt="Facebook" width="40" height="40" decoding="async">
               </a>
               <a
                 class="meta-social-link meta-social-link--threads"
@@ -69,7 +70,7 @@
                 aria-label="Threads"
                 title="Threads"
               >
-                <img src="/assets/images/about/brand_icons/threads-logo-black-01.webp" alt="Threads" width="40" height="40">
+                <img src="/assets/images/about/brand_icons/threads-logo-black-01.webp" alt="Threads" width="40" height="40" decoding="async">
               </a>
               <a
                 class="meta-social-link"
@@ -79,7 +80,7 @@
                 aria-label="Instagram"
                 title="Instagram"
               >
-                <img src="/assets/images/about/brand_icons/Instagram_Glyph_Gradient.webp" alt="Instagram" width="40" height="40">
+                <img src="/assets/images/about/brand_icons/Instagram_Glyph_Gradient.webp" alt="Instagram" width="40" height="40" decoding="async">
               </a>
             </div>
             <span class="meta-social-handle">@ninjapiraterobotalien</span>
@@ -121,7 +122,7 @@
         <div class="grid-3">
           <article class="panel card roster-card is-interactive frame-corners">
             <div class="media-frame">
-              <img src="/assets/images/home/ace_home_panel.webp" alt="Roster portrait of Ace" width="600" height="800">
+              <img src="/assets/images/home/ace_home_panel.webp" alt="Roster portrait of Ace" width="600" height="800" loading="lazy" decoding="async">
             </div>
             <div class="roster-card-body">
               <p class="stat-chip">Aggro</p>
@@ -131,7 +132,7 @@
           </article>
           <article class="panel card roster-card is-interactive frame-corners">
             <div class="media-frame">
-              <img src="/assets/images/home/granpa_panel.webp" alt="Roster portrait of Granpa P" width="600" height="800">
+              <img src="/assets/images/home/granpa_panel.webp" alt="Roster portrait of Granpa P" width="600" height="800" loading="lazy" decoding="async">
             </div>
             <div class="roster-card-body">
               <p class="stat-chip">Tank</p>
@@ -141,7 +142,7 @@
           </article>
           <article class="panel card roster-card is-interactive frame-corners">
             <div class="media-frame">
-              <img src="/assets/images/home/ninja_panel.webp" alt="Roster portrait of Ninja" width="600" height="800">
+              <img src="/assets/images/home/ninja_panel.webp" alt="Roster portrait of Ninja" width="600" height="800" loading="lazy" decoding="async">
             </div>
             <div class="roster-card-body">
               <p class="stat-chip">Combo</p>
@@ -165,9 +166,9 @@
         <div class="grid-2">
           <article class="panel card feature-card feature-card-duel frame-corners">
             <div class="media-frame feature-duel-frame">
-              <video class="feature-duel-video" autoplay muted loop playsinline preload="metadata" poster="/assets/images/home/hp_damage_fallback.jpg" aria-hidden="true">
+              <video class="feature-duel-video" autoplay muted loop playsinline preload="none" poster="/assets/images/home/hp_damage_fallback.jpg" aria-hidden="true">
                 <source src="/assets/videos/home/hp_damage.webm" type="video/webm">
-                <img class="feature-duel-fallback" src="/assets/images/home/hp_damage_fallback.jpg" alt="" width="1142" height="710">
+                <img class="feature-duel-fallback" src="/assets/images/home/hp_damage_fallback.jpg" alt="" width="1142" height="710" loading="lazy" decoding="async">
               </video>
               <span class="hp-stamp" aria-label="Starting health: 22 HP">22 HP</span>
             </div>
@@ -216,7 +217,7 @@
           <div class="split-card-media">
             <picture style="display: block; width: 100%; height: 100%;">
               <source srcset="/assets/images/home/dev_banner.webp" type="image/webp">
-              <img src="/assets/images/home/dev_banner_fallback.jpg" alt="Latest development preview">
+              <img src="/assets/images/home/dev_banner_fallback.jpg" alt="Latest development preview" width="1536" height="1024" loading="lazy" decoding="async">
             </picture>
           </div>
         </article>
