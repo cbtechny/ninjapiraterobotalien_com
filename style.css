@@ -239,14 +239,13 @@ ul{padding-left:1.25rem}
 .roster-card-body{margin-top:.2rem;padding:.9rem 1rem 1rem;border-radius:16px;background:linear-gradient(180deg,rgba(15,61,62,.08),rgba(15,61,62,.16));min-height:138px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
 .stat-chip{display:inline-flex;align-items:center;min-height:28px;padding:.2rem .65rem;border:1px solid rgba(224,168,78,.85);border-radius:999px;background:rgba(255,122,60,.12);color:var(--bg-primary);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .roster-card h3{margin-bottom:.2rem}
-.roster-tease{position:relative;padding-top:clamp(.5rem,2.2vw,1rem);padding-bottom:clamp(1.25rem,4vw,2.25rem);overflow:hidden}
-.roster-tease::before{
-  content:"";
+.roster-tease{position:relative;isolation:isolate;padding-top:clamp(.5rem,2.2vw,1rem);padding-bottom:clamp(1.25rem,4vw,2.25rem);overflow:visible}
+.roster-tease-garland{
   position:absolute;
   left:50%;
   top:47%;
   transform:translate(-50%,-50%);
-  width:114vw;
+  width:100vw;
   height:clamp(90px,13vw,168px);
   background:url('/assets/images/home/horizontal_3_party.webp') center center / cover no-repeat;
   opacity:.98;
