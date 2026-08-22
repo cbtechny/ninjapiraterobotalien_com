@@ -91,7 +91,7 @@ body {
 	z-index: 1;
 }
 		</style>
-		
+
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -167,7 +167,8 @@ const engine = new Engine(GODOT_CONFIG);
 			return;
 		}
 
-		if (navigator.serviceWorker.controller) {
+		const isolationWorkerUrl = new URL('./coi-serviceworker.js', window.location.href).href;
+		if (navigator.serviceWorker.controller?.scriptURL === isolationWorkerUrl) {
 			displayFailureNotice('Sackjack Island could not enable the browser isolation required to start. Try reloading the page.');
 			return;
 		}
