@@ -33,10 +33,35 @@ N.P.R.A. Games is dedicated to creating games with explosive energy and modular 
 ├── script.js              # Main JavaScript functionality
 ├── partials/              # Reusable HTML components (header, footer)
 ├── assets/                # Static assets (images, logos, UI elements)
+├── play/sackjack/build/   # Canonical generated Sackjack Web export
+├── beta/                  # Compatibility redirect to the canonical build
 ├── sackjack-island/       # Sackjack Island project pages
 ├── devlogs/               # Development blog posts
 └── studio/                # Studio information pages
 ```
+
+## Sackjack Web releases
+
+The Sackjack source repository is the source of truth. Its `Web` preset exports a complete generated bundle to `build/web/`; this repository only stores the promoted deployment copy under `play/sackjack/build/`.
+
+From the Sackjack repository, create a release export with Godot 4.7:
+
+```powershell
+New-Item -ItemType Directory -Force build/web | Out-Null
+& "C:\Users\chris\Local Apps\Godot\4.7\Godot_v4.7-stable_win64.exe" --headless --path . --export-release Web build/web/index.html
+```
+
+Then, from this repository, validate and import it:
+
+```powershell
+.\Tools\import_sackjack_web_build.ps1
+git status --short
+git diff --name-only -- play/sackjack/build
+```
+
+The importer defaults to `..\Sackjack-MOBILE\sackjack-mobile-main\build\web`. Pass `-SourcePath` when the source checkout is elsewhere. It validates the generated configuration and runtime files, stages and hashes the complete bundle, and replaces only `play/sackjack/build/`. Do not hand-edit or rename files inside that directory.
+
+The existing `/beta/` URL is retained as a relative redirect to `/play/sackjack/build/`. Normal future releases do not modify `beta/`.
 
 **Live Site:** https://cbtechny.github.io/ninjapiraterobotalien_com/
 
