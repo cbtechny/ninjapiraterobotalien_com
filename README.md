@@ -48,7 +48,7 @@ From the Sackjack repository, create a release export with Godot 4.7:
 
 ```powershell
 New-Item -ItemType Directory -Force build/web | Out-Null
-& "C:\Users\chris\Local Apps\Godot\4.7\Godot_v4.7-stable_win64.exe" --headless --path . --export-release Web build/web/index.html
+godot --headless --path . --export-release Web build/web/index.html
 ```
 
 Then, from this repository, validate and import it:
