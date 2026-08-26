@@ -86,7 +86,7 @@ The production export contains the expected Godot Web files under `play/sackjack
 - Current tree: targeted scan found the README path only before containment; no credential-shaped values were confirmed.
 - Reachable history: no credential-shaped values or suspicious secret/config filenames were confirmed; the README path and author metadata findings remain documented for separate history review.
 - Production export: current `play/sackjack/build/` has no source maps and contains only the expected generated bundle files.
-- Site/runtime verification: workflow configuration and local static file layout were checked; a post-change GitHub Pages deployment and audible-device check require the next push/deployment and are not claimed here.
+- Site/runtime verification: Pages deployment for commit `887e87527a80b482a557b7047eaf68f549a6fe1e` completed successfully. GET checks returned 200 for `/`, `/beta/`, and `/play/sackjack/build/index.html`; `/README.md`, `/dev/security/privacy_exposure_audit.md`, and `/Tools/import_sackjack_web_build.ps1` returned 404. The deployed game HTML contained no local Windows path, and all eight checked generated assets returned 200. `/play/sackjack/` itself returns 404 because the playable entry point is `/play/sackjack/build/`; this was not changed as unrelated site redesign. Audible-device playback remains unverified.
 
 ## History-cleanup handoff
 
