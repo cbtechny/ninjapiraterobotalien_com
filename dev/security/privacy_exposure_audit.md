@@ -22,7 +22,7 @@ File: `README.md:51` (original location)
 Exposure: `C:\Users\<REDACTED>\Local Apps\Godot\4.7\Godot_v4.7-stable_win64.exe`
 Current branch: CONTAINED; replaced with the generic `godot` command
 Pages reachability before containment: YES, because the Pages workflow uploaded `.`
-Current Pages reachability after the workflow change: NO once the changed workflow is deployed; `README.md` is not staged. The existing live deployment was not changed by this local audit because no commit/push was performed.
+Current Pages reachability after the workflow change: NO once the changed workflow is deployed; `README.md` is not staged. The containment is committed locally, but the existing live deployment was not changed because the push is still blocked by missing GitHub credentials.
 Git history: PRESENT
 First known offending commit: `cacde2b903dc3dceec914325df8d2d652a8c66ba`
 Most recent known offending commit: `aa6c5731e2b1383a5b40db73f0b9b593767a52a0`
