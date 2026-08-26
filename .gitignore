@@ -1,1 +1,23 @@
-.vscode/settings.json
+# Local development and editor state
+.godot/
+.import/
+.idea/
+.vscode/
+.test-server/
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Generated source maps are not needed in the production site by default.
+*.map

@@ -30,12 +30,17 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
+
+      - name: Stage public website
+        run: |
+          mkdir _site
+          cp -R index.html script.js style.css favicon.ico sitemap.xml robots.txt partials assets studio sackjack-island devlogs about devlog _site/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Publish only the redesign website, not repository docs, tooling, or development metadata.
+          path: '_site'
 
   # Deployment job
   deploy:
