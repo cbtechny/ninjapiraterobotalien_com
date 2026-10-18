@@ -1,9 +1,9 @@
 let mobileMenuInitialized = false;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initDeferredVideos();
   await injectComponents();
   await renderLatestIntel();
-  initHeroCaptionDismiss();
 });
 
 async function injectComponents() {
@@ -75,14 +75,46 @@ function initMobileMenu() {
   mobileMenuInitialized = true;
 }
 
-function initHeroCaptionDismiss() {
-  const caption = document.querySelector('.hero-caption');
-  const dismissBtn = document.querySelector('.hero-caption-dismiss');
-
-  if (!caption || !dismissBtn) return;
-
-  dismissBtn.addEventListener('click', () => {
-    caption.style.display = 'none';
+function initDeferredVideos() {
+  document.querySelectorAll('[data-video-player]').forEach(player => {
+    const button = player.querySelector('button');
+    const preview = player.querySelector('img');
+    const status = player.querySelector('[role="status"]');
+    let video;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      if (!video) {
+        video = document.createElement('video');
+        video.controls = true;
+        video.playsInline = true;
+        video.muted = true;
+        video.preload = 'none';
+        video.poster = preview.src;
+        video.width = Number(preview.getAttribute('width'));
+        video.height = Number(preview.getAttribute('height'));
+        video.setAttribute('aria-label', button.dataset.label);
+        video.setAttribute('aria-describedby', player.dataset.description);
+        video.addEventListener('error', () => {
+          video.hidden = true;
+          preview.hidden = false;
+          button.hidden = false;
+          status.textContent = 'Video could not load. The preview and explanation are still available. Press Play to retry.';
+        });
+        player.querySelector('.video-stage').append(video);
+      }
+      status.textContent = '';
+      preview.hidden = true;
+      video.hidden = false;
+      button.hidden = true;
+      // No media element or source exists until this explicit visitor action.
+      video.src = player.dataset.video;
+      video.focus();
+      try {
+        await video.play();
+      } catch (error) {
+        if (!video.error) status.textContent = 'Press Play in the video controls to start playback.';
+      }
+    });
   });
 }
 
