@@ -613,20 +613,20 @@ body.devlog-hub-page .devlog-featured-section > .panel {
   }
 }
 /* Batata introduction: image geometry and opaque title mask stay coupled. */
-.hero-art{position:relative;max-width:1180px;margin:auto;aspect-ratio:3/2;overflow:hidden;border-bottom:3px solid var(--border-gold)}
-.hero-art>img{width:100%;height:100%;object-fit:contain}
-.batata-title-panel{position:absolute;inset:54% 0 0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:1rem;background:#060b15;border-top:3px solid var(--border-gold);color:var(--text-primary)}
-.batata-title-panel h1{font-size:clamp(2rem,7.5vw,6rem);margin:0;line-height:.95;color:#ffd36c;text-shadow:3px 4px 0 #703114}
+.hero-art{position:relative;max-width:1180px;margin:auto;aspect-ratio:3/1.6;overflow:hidden;border-bottom:3px solid var(--border-gold)}
+.hero-art>img{position:absolute;top:0;left:0;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+.batata-title-panel{position:absolute;inset:67.5% 0 0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:1rem;background:#060b15;border-top:3px solid var(--border-gold);color:var(--text-primary)}
+.batata-title-panel h1{font-size:clamp(1.6rem,5vw,4rem);margin:0;line-height:.95;color:#ffd36c;text-shadow:3px 4px 0 #703114}
 .batata-title-panel h1 span{display:block;font-size:.57em;letter-spacing:.13em;margin-top:.22em;color:#fff}
 .batata-title-panel .kicker{margin-bottom:.6rem;font-size:clamp(.65rem,1.6vw,.85rem)}
-.hero-intro{padding-top:2rem;padding-bottom:2.5rem}
+.hero-intro{padding-top:1.4rem;padding-bottom:2rem}
 .hero-deck{font-family:var(--font-head);font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.1;letter-spacing:.03em;color:#ffd36c}
 .hero-intro>p:not(.hero-deck){max-width:65ch}
 .platform-note,.media-note{margin-top:1.25rem;font-size:.9rem}
 .section-lead{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700}
 .lucky-demos{margin-top:2rem;align-items:start}
-.demo-card h3{min-height:2.3em}
-.demo-card>p:not(.kicker){min-height:5em}
+.demo-card h3{margin-bottom:.6rem}
+.demo-card>p:not(.kicker){margin-bottom:1rem}
 .video-stage{position:relative;background:#060b15;overflow:hidden;border:2px solid #0f3d3e;border-radius:12px}
 .video-stage img,.video-stage video{display:block;width:100%;height:100%;object-fit:contain}
 .video-stage video{position:absolute;inset:0}
@@ -645,3 +645,66 @@ body.devlog-hub-page .devlog-featured-section > .panel {
 section[id]{scroll-margin-top:110px}
 @media(max-width:768px){.batata-title-panel{padding:.5rem}.hero-intro{padding-top:1.5rem}.demo-card h3,.demo-card>p:not(.kicker){min-height:0}.brand-title{font-size:1.3rem}.brand-sub{font-size:.65rem}.lucky-demos{gap:2rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Survival-loop pass: semantic steps and readable media, without new image assets. */
+.hero-intro .btn-group{margin-top:1.25rem}
+.bout-loop{list-style:none;padding:0;margin:2rem 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;counter-reset:steps}
+.bout-loop li{border-top:3px solid var(--border-gold);padding:1.1rem 0 0}
+.step-number{font-family:var(--font-head);font-size:2.5rem;color:#ffd36c;line-height:1;display:block;margin-bottom:.8rem}
+.bout-loop h3{font-size:1.6rem}.bout-loop p{font-size:.95rem}
+.loop-support{align-items:stretch;margin-top:2rem}
+.action-options{list-style:none;padding:0;margin:1.25rem 0}
+.action-options li{display:grid;grid-template-columns:5rem 1fr;gap:1rem;padding:.85rem 0;border-top:1px solid #9b7949}
+.action-options strong{font-family:var(--font-head);font-size:1.35rem;letter-spacing:.03em}
+.rules-details{margin-top:1.5rem;border:1px solid var(--border-gold);border-radius:14px;background:#092829}
+.rules-details summary{padding:1rem 1.25rem;cursor:pointer;font-weight:700;color:#ffd36c}
+.rules-details summary:focus-visible{outline:3px solid #ffd36c;outline-offset:4px;border-radius:12px}
+.rules-body{padding:.25rem 1.25rem 1rem;max-width:78ch}
+.island-construction{position:relative;overflow:hidden;isolation:isolate;border:2px dashed var(--border-gold);border-radius:18px;background:linear-gradient(160deg,#13585a,#092829);padding:1.5rem;display:flex;flex-direction:column;justify-content:center}
+.island-construction h3{font-size:clamp(1.6rem,3vw,2.2rem);color:#ffd36c}
+.island-construction a{color:#ffcf96;font-weight:700}
+.island-construction .kicker{color:#ffcf96}
+.island-scene{height:125px;position:relative;width:220px;max-width:100%;margin:0 auto 1.5rem;overflow:hidden;border-bottom:3px solid #60bfc0}
+.island-sun{position:absolute;width:42px;height:42px;border-radius:50%;background:#ffd36c;top:0;right:12px}
+.island-sand{position:absolute;width:190px;height:32px;bottom:-14px;left:10px;border-radius:50%;background:#f1dab1;transform:rotate(-3deg)}
+.island-potato{position:absolute;width:52px;height:65px;background:#c98c4b;border:3px solid #f1dab1;border-radius:48% 55% 42% 45%;bottom:3px;left:85px;transform:rotate(-12deg)}
+.island-potato::after{content:"";position:absolute;left:12px;top:22px;width:5px;height:5px;border-radius:50%;background:#092829;box-shadow:18px 0 #092829}
+.island-scaffold{position:absolute;width:60px;height:65px;left:18px;bottom:0;border:5px solid #e0a84e;border-bottom:0;transform:skewY(-8deg)}
+.island-scaffold::after{content:"";position:absolute;left:-12px;top:20px;width:82px;height:5px;background:#e0a84e;transform:rotate(-32deg)}
+.island-palm{position:absolute;right:10px;bottom:0;font-size:85px;line-height:1;color:#75c98d;transform:rotate(18deg)}
+.lucky-demos{max-width:960px;margin-left:auto;margin-right:auto}
+.demo-card .deferred-video{max-width:350px;margin:0 auto}
+.demo-card{display:flex;flex-direction:column;height:100%}
+.demo-card .deferred-video{margin-top:auto;width:100%}
+.progression-note{margin-top:2rem;padding:1.5rem;border-left:4px solid var(--border-gold);background:#092829;border-radius:0 14px 14px 0}
+.progression-note h3{color:#ffd36c}
+.tournament-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.tournament-stakes ol{padding-left:1.3rem;margin:0}
+.tournament-stakes li{padding:.6rem 0 .8rem}
+.tournament-stakes strong,.tournament-stakes span{display:block}
+.tournament-stakes span{margin-top:.3rem;font-size:.95rem}
+.studio-name-panel{min-height:240px;display:flex;flex-direction:column;justify-content:center;padding:1rem;background:#092829;border-radius:12px;border:1px solid var(--border-gold)}
+.studio-name-panel .studio-wordmark{font-family:var(--font-head);font-size:clamp(2rem,5vw,3.5rem);line-height:1.05;letter-spacing:.04em;color:#ffd36c;margin:.5rem 0 1rem}
+.studio-name-panel p{color:var(--text-primary)}
+.studio-name-panel .kicker{color:#ffcf96}
+ .about-page .panel h2,.about-page .panel h3{background:none;-webkit-text-fill-color:currentColor;color:#0f3d3e;text-shadow:none}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #ffd36c;outline-offset:4px}
+@media(max-width:900px){.bout-loop{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:768px){
+ .hero-intro{padding-top:1.2rem}.batata-title-panel .kicker{display:none}
+ .tournament-layout{grid-template-columns:1fr}
+ .roster .grid-3{gap:1rem}.roster-card{display:grid;grid-template-columns:minmax(90px,32%) 1fr;gap:.75rem;padding:.75rem;align-items:center}
+ .roster-card .media-frame{aspect-ratio:3/4}.roster-card .media-frame img{width:100%;height:100%;object-fit:cover}
+ .roster-card-body{margin:0;padding:.75rem;min-height:0}.roster-card h3{font-size:1.65rem}.roster-card p{font-size:.9rem}
+ .roster-card .stat-chip{font-size:.75rem}.roster-card .media-frame::after{inset:5px}
+ .loop-support{gap:1.25rem}.lucky-demos{gap:1.5rem}.demo-card{height:auto}
+}
+@media(max-width:430px){.bout-loop{grid-template-columns:1fr;gap:.5rem}.bout-loop li{display:grid;grid-template-columns:40px 1fr;column-gap:.75rem;padding-top:1rem}.step-number{grid-row:1/3;font-size:2rem}.bout-loop h3{margin-top:0}.bout-loop p{grid-column:2}.action-options li{grid-template-columns:4.5rem 1fr;gap:.5rem}.roster-card-body{padding:.5rem}.studio-name-panel{min-height:200px}}
+
+.about-page .grid-2>*{min-width:0}
+.about-page .panel a:not(.btn),.about-page .meta-social-handle{overflow-wrap:anywhere}
+.about-page .meta-social-row{flex-wrap:wrap}
+.about-page .panel .btn-secondary{background:#0f3d3e;color:#f9f9f9;border-color:#0f3d3e}
+.about-page .panel .btn-secondary:hover,.about-page .panel .btn-secondary:focus-visible{background:#092829;color:#fff}
+
+.home-page .btn-primary,.about-page .btn-primary{color:#060b15}
