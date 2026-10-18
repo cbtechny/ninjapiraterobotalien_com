@@ -105,3 +105,26 @@ The old `hp_damage.webm` player and poster are no longer referenced by the homep
 5. Optional Pampa footage below full HP showing healing; existing “HP full” clip remains accurately explained.
 
 No game code, game exports, Kit, signup forms, store purchase links, deployment, merge or remote push changed.
+
+
+## Marketing and artwork pass — October 18, 2026
+
+Continues `codex/batata-survival-loop`. The current page now calls Batata a single-player blackjack battler, anchors the pitch in outlasting a rival, and uses shorter decision-led copy. The 2-Coin worked example is expandable beside the existing exact-rule details. Main content order, platform caveats, Pampa full-health explanation and planned Gold progression are retained.
+
+### Artwork integration
+
+Used the supplied reference-based hero, studio workshop, and island construction artwork as optimized WebP derivatives. No image generation or master edits were performed. The generated title treatment remains a separate unintegrated concept; the accessible game title stays HTML text. Supplied PNG masters and their original handoff remain untouched/untracked.
+
+- Hero: `assets/images/home/batata-hero.webp`, 1280×720, 147,290 bytes.
+- Studio: `assets/images/about/npra-studio-workshop.webp`, 960×600, 161,580 bytes.
+- Construction: `assets/images/shared/potato-island-construction.webp`, 800×500, 97,624 bytes.
+
+The old lettered hero and opaque mask are no longer used on the homepage. Desktop uses a title/copy-and-art split; mobile preserves the entire hero. Studio art is labeled through its alt text as illustration, not a logo or workplace photo. Construction artwork is an interim preview slot; it is not presented as gameplay. Homepage and About social images now use the corresponding WebP art.
+
+### Checks
+
+Static local links/assets and `git diff --check` passed. Browser script passed at 1440, 1024, 768, 390, 360 and 320px: hero loaded without overflow, both expandable sections worked by keyboard, no video elements/downloads before Play, both clips played/replayed, fullscreen/error/no-JavaScript/reduced-motion checks passed. About loaded without overflow at 1440, 390 and 320px. No recorded homepage JavaScript/HTTP errors. Desktop/mobile homepage and About screenshots visually inspected; this is responsive Chrome QA, not physical-device testing or a complete accessibility audit.
+
+### Next content priority
+
+Capture a real current close-finish decision, not another decorative illustration. See `docs/BATATA_CAPTURE_BRIEF.md`. Kit and store CTAs remain deferred. No merge, deployment, remote push, or game project change.

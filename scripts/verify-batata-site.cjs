@@ -13,13 +13,16 @@ fs.mkdirSync('.test-server', {recursive:true});
   await page.goto(base+'/',{waitUntil:'networkidle'});
   await page.locator('#luckys').scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
   await page.locator('#development').scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
-  const geometry=await page.evaluate(()=>{const a=document.querySelector('.hero-art').getBoundingClientRect(),m=document.querySelector('.batata-title-panel').getBoundingClientRect();return {overflow:document.documentElement.scrollWidth>innerWidth,maskTop:(m.top-a.top)/a.height,maskBottom:m.bottom>=a.bottom-3,opaque:getComputedStyle(document.querySelector('.batata-title-panel')).backgroundColor,videoElements:document.querySelectorAll('video').length}});
+  const geometry=await page.evaluate(()=>{const image=document.querySelector('.hero-art>img'),a=image.getBoundingClientRect();return {overflow:document.documentElement.scrollWidth>innerWidth,heroLoaded:image.complete&&image.naturalWidth>0,heroAspect:a.width/a.height,videoElements:document.querySelectorAll('video').length}});
   for(const section of await page.locator('main>section').all()){await section.scrollIntoViewIfNeeded();} await page.locator('body').evaluate(()=>scrollTo(0,0)); await page.waitForTimeout(200);
   await page.screenshot({path:`.test-server/home-${width}.png`,fullPage:true});
   result.layouts.push({width,...geometry,videoRequestsBeforePlay:videos.length});
   await page.locator('.rules-details summary').focus(); await page.keyboard.press('Enter');
   if(!await page.locator('.rules-details').evaluate(d=>d.open)) throw Error('Keyboard details failed');
   await page.locator('.rules-details summary').press('Enter');
+  await page.locator('.decision-details summary').focus(); await page.keyboard.press('Space');
+  if(!await page.locator('.decision-details').evaluate(d=>d.open)) throw Error('Action details failed');
+  await page.locator('.decision-details summary').press('Space');
   if(width===390){await page.locator('#luckys').scrollIntoViewIfNeeded();await page.screenshot({path:'.test-server/luckys-mobile.png'});}
   if(width===1440){
    for(let i=0;i<2;i++){
@@ -48,6 +51,6 @@ fs.mkdirSync('.test-server', {recursive:true});
  }
  fs.writeFileSync('.test-server/qa-results.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));await browser.close();
  const assert=require('node:assert/strict');
- for(const layout of result.layouts){assert.equal(layout.overflow,false);assert.equal(layout.videoRequestsBeforePlay,0);assert.equal(layout.videoElements,0);assert.equal(layout.opaque,'rgb(6, 11, 21)');assert(layout.maskBottom);}
+ for(const layout of result.layouts){assert.equal(layout.overflow,false);assert.equal(layout.videoRequestsBeforePlay,0);assert.equal(layout.videoElements,0);assert(layout.heroLoaded);assert(Math.abs(layout.heroAspect-16/9)<0.02);}
  assert.equal(result.playback.length,2);assert(result.playback.every(v=>v.playing&&v.controls&&v.inline&&v.muted));assert(result.fullscreen);assert(result.failure.previewVisible&&result.failure.retryVisible);assert.equal(result.nojs.requests,0);assert(result.nojs.nav);assert.equal(result.nojs.buttons,0);assert.equal(result.nojs.previews,2);assert.equal(result.reducedMotion.animations,0);assert.equal(result.errors.length,0);assert.equal(result.badResponses.length,0);
 })().catch(e=>{console.error(e);process.exit(1)});
