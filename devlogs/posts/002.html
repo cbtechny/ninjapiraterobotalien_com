@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building the Island - Devlog #002 - Ninja Pirate Robot Alien</title>
-  <meta name="description" content="Exploring world-building, tournament structure, and zone design for Sackjack Island.">
+  <title>Building the Island: Batata! Spud Royale | NPRA</title>
+  <meta name="description" content="Batata’s tournament flow: blackjack hands, automatic Luckys, and optional Coin-funded actions.">
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ninjapiraterobotalien.com/devlogs/posts/002.html">
+  <meta property="og:title" content="Building the Island: Batata! Spud Royale | NPRA">
+  <meta property="og:description" content="Batata’s tournament flow: blackjack hands, automatic Luckys, and optional Coin-funded actions.">
+  <meta property="og:image" content="https://ninjapiraterobotalien.com/assets/images/placeholders/devlog-feature-placeholder.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ninjapiraterobotalien.com/devlogs/posts/002.html">
+  <meta property="twitter:title" content="Building the Island: Batata! Spud Royale | NPRA">
+  <meta property="twitter:description" content="Batata’s tournament flow: blackjack hands, automatic Luckys, and optional Coin-funded actions.">
+  <meta property="twitter:image" content="https://ninjapiraterobotalien.com/assets/images/placeholders/devlog-feature-placeholder.png">
   <link rel="stylesheet" href="../../style.css">
   <link rel="icon" href="../../favicon.ico">
 
@@ -14,100 +30,70 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <!-- Header Placeholder - Injected via JS -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/index.html" class="brand" aria-label="Batata! Spud Royale home">
+        <span class="brand-title">Batata! Spud Royale</span>
+        <span class="brand-sub">Ninja Pirate Robot Alien</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" hidden>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html" data-nav="home">Home</a></li>
+          <li><a href="/devlog/index.html" data-nav="devlog">Devlog</a></li>
+          <li><a href="/about/index.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+</div>
 
   <!-- Article Content -->
-  <article class="article-content">
-    <a href="../index.html" class="back-link">Back to Devlogs</a>
+  <main id="main-content" tabindex="-1"><article class="article-content">
+    <a href="/devlog/index.html" class="back-link">Back to Devlogs</a>
 
     <header class="article-header">
       <h1>Building the Island</h1>
-      <p class="article-meta">January 10, 2026 • Devlog #002 • 7 min read</p>
-    </header>
+      <p class="article-meta">January 10, 2026 • Devlog #002</p>
+    <p class="revision-note">Revised <time datetime="2026-10-18">October 18, 2026</time>: mechanics wording updated to reflect current Luckys and Coin-funded actions. Original publication date retained.</p></header>
 
-    <section>
-      <h2>World-Building Progress</h2>
-      <p>
-        This week, we've made significant progress on the world of Sackjack Island. Our focus
-        has been on creating a cohesive blackjack tournament environment that combines fast-paced
-        card gameplay with the island's quirky potato inhabitants.
-      </p>
-
-      <h2>Tournament Structure</h2>
-      <p>
-        On Sackjack Island, potatoes don't bake… they battle. The island hosts the biggest
-        blackjack tournament in the spud world, and players compete against quirky opponents
-        to climb toward first place.
-      </p>
-
-      <h2>The Island's Zones</h2>
-      <p>
-        The island is divided into distinct zones, each hosting different tournament stages
-        and opponents:
-      </p>
-      <ul>
-        <li><strong>Beach Landing - Tournament Prep Area:</strong> Your entry point to the island with gentle waves and golden sand. Converse with characters, prepare for battles, and get a feel for the island's unique blackjack style.</li>
-        <li><strong>Jungle Canopy:</strong> Dense vegetation with vertical exploration and opponents that are more intelligent than they appear.</li>
-        <li><strong>Summit Sanctuary:</strong> The island's highest point where all paths lead. Face off against the toughest opponent here.</li>
-      </ul>
-
-      <h2>Gameplay Focus</h2>
-      <p>
-        We're building the game around fast-paced blackjack mechanics with strategic depth:
-      </p>
-      <ul>
-        <li><strong>Quick Matches:</strong> Games are designed to be fast and engaging, perfect for quick sessions</li>
-        <li><strong>Special Cards:</strong> Collect jokers and powerups to add strategic variety</li>
-        <li><strong>Character Unlocks:</strong> Win to unlock new potato fighters with unique abilities</li>
-        <li><strong>Tournament Progression:</strong> Climb through zones to reach the final showdown</li>
-      </ul>
-
-      <h2>Visual Identity</h2>
-      <p>
-        The art style embraces vibrant comic-book aesthetics with bold colors and dynamic effects:
-      </p>
-      <ul>
-        <li>Bold, saturated color palettes for visual impact</li>
-        <li>Dynamic lighting with explosive highlights</li>
-        <li>Stylized character designs with expressive animations</li>
-        <li>Particle effects for card actions and victories</li>
-      </ul>
-
-      <h2>Technical Approach: Modular Design</h2>
-      <p>
-        Our modular system in Godot allows for rapid prototyping and flexible content creation.
-        This approach enables us to:
-      </p>
-      <ul>
-        <li>Quickly test new card mechanics and opponent behaviors</li>
-        <li>Add new characters and abilities without breaking existing systems</li>
-        <li>Optimize performance by loading zones dynamically</li>
-        <li>Respond to community feedback with iterative updates</li>
-      </ul>
-
-      <h2>What's Next?</h2>
-      <p>
-        Now that the island structure is in place, we're diving into core gameplay mechanics.
-        The next devlog will cover:
-      </p>
-      <ul>
-        <li>Blackjack mechanics and card system implementation</li>
-        <li>Character abilities and strategic gameplay</li>
-        <li>Early gameplay footage from our first playable prototype</li>
-      </ul>
-      <p>
-        Thanks for following along! We're excited to share more as Sackjack Island comes to life.
-      </p>
-    </section>
+    <section><p>Batata! Spud Royale brings potato rivals together for a focused card tournament. Pick an opponent, play blackjack hands, and manage your resources through the bout.</p>
+      <h2>What Playing Feels Like</h2><p>Hit to draw or Stand to keep your hand. Aim for 21 without going over. A Lucky can change your resources, but another draw still carries bust risk.</p><p>Your character has a Lucky rank. When that rank lands in their hand, their Lucky triggers automatically. Opening cards and subsequent draws can trigger Luckys; suits do not matter, and opponents have Luckys too.</p>
+      <p>Ace gains 1 Coin from an Ace. Pampa restores up to 1 HP from a 6. Ninja deals 1 damage from a 7, absorbed by Shield first.</p>
+      <h2>How a Session Goes</h2><ol><li>Choose your character and enter the tournament.</li><li>Play your hand with Hit and Stand; Luckys trigger automatically.</li><li>After your hand resolves, optional actions spend Coins from the current bout: Attack costs 2 Coins to deal 3 damage; Defend costs 2 Coins to gain up to 2 Shield; Heal costs 2 Coins to restore up to 3 HP.</li><li>Keep battling to advance through the bracket.</li></ol>
+        </section>
 
     <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--color-surface-light);">
-      <a href="../index.html" class="back-link">Back to Devlogs</a>
+      <a href="/devlog/index.html" class="back-link">Back to Devlogs</a>
     </footer>
-  </article>
+  </article></main>
 
   <!-- Footer Placeholder - Injected via JS -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2026 Ninja Pirate Robot Alien.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/index.html">Home</a>
+        <a href="/devlog/index.html">Devlog</a>
+        <a href="/about/index.html">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</div>
 
   <script src="../../script.js"></script>
 </body>

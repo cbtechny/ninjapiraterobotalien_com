@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Kickoff - Devlog #001 - Ninja Pirate Robot Alien</title>
-  <meta name="description" content="First devlog from Ninja Pirate Robot Alien covering our goals, development philosophy, and introducing Sackjack Island.">
+  <title>Project Kickoff: Batata! Spud Royale Card Battler | NPRA Games</title>
+  <meta name="description" content="Introducing Batata! Spud Royale, a funny potato card battler. Learn about Ninja Pirate Robot Alien, a fun indie game studio dedicated to quirky games.">
+
+  <!-- Open Graph / Facebook / Discord -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ninjapiraterobotalien.com/devlogs/posts/001.html">
+  <meta property="og:title" content="Project Kickoff: Batata! Spud Royale Card Battler | NPRA Games">
+  <meta property="og:description" content="Introducing Batata! Spud Royale, a funny potato card battler. Learn about Ninja Pirate Robot Alien, a fun indie game studio dedicated to quirky games.">
+  <meta property="og:image" content="https://ninjapiraterobotalien.com/assets/images/home/ace-roster-v2.webp">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ninjapiraterobotalien.com/devlogs/posts/001.html">
+  <meta property="twitter:title" content="Project Kickoff: Batata! Spud Royale Card Battler | NPRA Games">
+  <meta property="twitter:image" content="https://ninjapiraterobotalien.com/assets/images/home/ace-roster-v2.webp">
   <link rel="stylesheet" href="../../style.css">
   <link rel="icon" href="../../favicon.ico">
 
@@ -14,24 +29,49 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <!-- Header Placeholder - Injected via JS -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/index.html" class="brand" aria-label="Batata! Spud Royale home">
+        <span class="brand-title">Batata! Spud Royale</span>
+        <span class="brand-sub">Ninja Pirate Robot Alien</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" hidden>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html" data-nav="home">Home</a></li>
+          <li><a href="/devlog/index.html" data-nav="devlog">Devlog</a></li>
+          <li><a href="/about/index.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+</div>
 
   <!-- Article Content -->
-  <article class="article-content">
-    <a href="../index.html" class="back-link">Back to Devlogs</a>
+  <main id="main-content" tabindex="-1"><article class="article-content">
+    <a href="/devlog/index.html" class="back-link">Back to Devlogs</a>
 
     <header class="article-header">
       <h1>Project Kickoff</h1>
-      <p class="article-meta">January 1, 2026 • Devlog #001 • 5 min read</p>
-    </header>
+      <p class="article-meta">January 1, 2026 • Devlog #001</p>
+    <p class="revision-note">Revised <time datetime="2026-10-18">October 18, 2026</time>: mechanics wording updated to reflect current Luckys and Coin-funded actions. Original publication date retained.</p></header>
 
     <section>
       <h2>Welcome to Ninja Pirate Robot Alien</h2>
       <p>
         Happy New Year! Today marks the official launch of Ninja Pirate Robot Alien and the beginning
         of an exciting journey into indie game development. This first devlog covers our mission,
-        development philosophy, and introduces our flagship project: <strong>Sackjack Island</strong>.
+        development philosophy, and introduces our flagship project: <strong>Batata! Spud Royale</strong>.
       </p>
 
       <h2>Our Mission</h2>
@@ -58,17 +98,16 @@
         <li><strong>Player-First:</strong> Gameplay feel and player experience are paramount</li>
       </ul>
 
-      <h2>Introducing Sackjack Island</h2>
+      <h2>Introducing Batata! Spud Royale</h2>
       <p>
-        Sackjack Island is our flagship project—a vibrant blackjack-style tournament game where
-        potatoes battle it out on a mysterious island. Face off against quirky opponents, collect
-        jokers and special cards, and unlock new fighters as you climb toward first place.
+        Batata! Spud Royale is our flagship project—a vibrant blackjack-style tournament game where
+        potatoes battle it out on a mysterious island. Face off against quirky opponents and make Hit/Stand decisions while automatic Luckys add a twist to each hand.
       </p>
 
-      <h3>Core Features</h3>
+      <p>Your character has a Lucky rank. When that rank lands in their hand, their Lucky triggers automatically. Opening cards and subsequent draws can trigger Luckys; suits do not matter, and opponents have Luckys too.</p><p>After your hand resolves, optional actions spend Coins from the current bout: Attack costs 2 Coins to deal 3 damage; Defend costs 2 Coins to gain up to 2 Shield; Heal costs 2 Coins to restore up to 3 HP.</p><h3>Core Features</h3>
       <ul>
-        <li>Fast-paced blackjack matches with powerups and strategic depth</li>
-        <li>Unlockable potato characters with unique abilities</li>
+        <li>Blackjack hands with automatic, rank-triggered Luckys</li>
+        <li>Potato characters with distinct Lucky ranks and effects</li>
         <li>Comic-book inspired art style with bold, vibrant visuals</li>
         <li>Quick play sessions designed for engaging gameplay</li>
       </ul>
@@ -89,7 +128,7 @@
       <p>
         Over the coming weeks, we'll be diving into gameplay mechanics, creating card systems,
         and building our first playable prototype. The next devlog will focus on world-building
-        and the modular systems powering Sackjack Island.
+        and the modular systems powering Batata! Spud Royale.
       </p>
       <p>
         Thanks for joining us on this journey. Follow along as we build something explosive!
@@ -97,12 +136,26 @@
     </section>
 
     <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--color-surface-light);">
-      <a href="../index.html" class="back-link">Back to Devlogs</a>
+      <a href="/devlog/index.html" class="back-link">Back to Devlogs</a>
     </footer>
-  </article>
+  </article></main>
 
   <!-- Footer Placeholder - Injected via JS -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2026 Ninja Pirate Robot Alien.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/index.html">Home</a>
+        <a href="/devlog/index.html">Devlog</a>
+        <a href="/about/index.html">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</div>
 
   <script src="../../script.js"></script>
 </body>

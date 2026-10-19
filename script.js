@@ -1,124 +1,126 @@
-/**
- * NinjaPirate Studio - Main JavaScript
- * Handles shared component injection and site interactions
- */
-
-// Track if mobile menu has been initialized to avoid duplicate listeners
-let mobileMenuInitialized = false;
-
-// Inject shared header and footer on page load
-document.addEventListener('DOMContentLoaded', async () => {
-  await injectComponents();
+/** Shared components enhance complete static navigation; failed requests leave it intact. */
+document.addEventListener('DOMContentLoaded', () => {
+  initDeferredVideos();
+  highlightActiveNav();
+  initMobileMenu();
+  injectComponents();
 });
 
-/**
- * Fetch and inject header and footer partials into the page
- */
 async function injectComponents() {
-  try {
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-
-    const promises = [];
-
-    // Fetch header
-    if (headerPlaceholder) {
-      promises.push(
-        fetch('/partials/header.html')
-          .then(response => {
-             if (response.ok) return response.text();
-             throw new Error('Failed to load header');
-          })
-          .then(html => {
-            headerPlaceholder.innerHTML = html;
-            highlightActiveNav();
-          })
-          .catch(error => console.error('Header load error:', error))
-      );
+  await Promise.all(['header', 'footer'].map(async component => {
+    const mount = document.getElementById(`${component}-placeholder`);
+    if (!mount) return;
+    try {
+      const response = await fetch(`/partials/${component}.html`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      // A slow response must not replace navigation/footer while it is in use.
+      if (mount.contains(document.activeElement) || mount.querySelector('.main-nav.active')) return;
+      // Only repository-authored, same-origin partials are inserted here.
+      mount.innerHTML = html;
+      highlightActiveNav();
+      if (component === 'header') initMobileMenu();
+    } catch (error) {
+      console.warn(`${component} unavailable; keeping static fallback.`, error);
     }
-
-    // Fetch footer
-    if (footerPlaceholder) {
-      promises.push(
-        fetch('/partials/footer.html')
-          .then(response => {
-            if (response.ok) return response.text();
-            throw new Error('Failed to load footer');
-          })
-          .then(html => {
-            footerPlaceholder.innerHTML = html;
-          })
-          .catch(error => console.error('Footer load error:', error))
-      );
-    }
-
-    // Wait for all injections to complete
-    await Promise.all(promises);
-
-    // Re-initialize mobile menu after header is injected
-    initMobileMenu();
-  } catch (error) {
-    console.error('Error loading components:', error);
-  }
+  }));
 }
 
-/**
- * Highlight active navigation item based on current page
- */
 function highlightActiveNav() {
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.main-nav a, .footer-nav a');
-
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && (currentPath.includes(href) ||
-        (currentPath.endsWith('index.html') && link.classList.contains('nav-home')) ||
-        (currentPath === '/' && link.classList.contains('nav-home')))) {
-      link.style.color = 'var(--color-accent)';
-    }
+  const normalize = path => path.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
+  const current = normalize(location.pathname);
+  document.querySelectorAll('.main-nav a, .footer-nav a').forEach(link => {
+    const target = normalize(new URL(link.href).pathname);
+    const exact = current === target;
+    const section = (target === '/devlog' && current.startsWith('/devlogs/posts/')) || (target !== '/' && new URL(link.href).pathname.endsWith('/index.html') && current.startsWith(target + '/'));
+    link.classList.toggle('is-active', exact || section);
+    link.removeAttribute('aria-current');
+    if (exact || section) link.setAttribute('aria-current', exact ? 'page' : 'location');
   });
 }
 
-/**
- * Initialize mobile menu toggle functionality
- */
 function initMobileMenu() {
-  // Prevent duplicate initialization
-  if (mobileMenuInitialized) {
-    return;
-  }
-
   const toggle = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.main-nav');
+  if (!toggle || !nav || toggle.dataset.initialized) return;
+  toggle.dataset.initialized = 'true';
+  toggle.hidden = false;
+  const small = matchMedia('(max-width: 768px)');
+  let open = false;
+  function setOpen(value, restoreFocus = false) {
+    open = value;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.classList.toggle('active', open);
+    nav.classList.toggle('active', open);
+    nav.hidden = small.matches && !open;
+    nav.inert = small.matches && !open;
+    if (restoreFocus) toggle.focus();
+  }
+  nav.classList.add('menu-ready');
+  toggle.addEventListener('click', () => {
+    setOpen(!open);
+    if (open) nav.querySelector('a')?.focus();
+  });
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a')) setOpen(false, small.matches);
+  });
+  // Bind to this header so replacement does not leave document listeners behind.
+  toggle.closest('header').addEventListener('keydown', event => {
+    if (event.key === 'Escape' && open) {
+      event.preventDefault();
+      setOpen(false, true);
+    }
+  });
+  toggle.closest('header').addEventListener('focusout', event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+  });
+  small.addEventListener('change', () => {
+    if (!toggle.isConnected) return;
+    const restore = small.matches && nav.contains(document.activeElement);
+    setOpen(false, restore);
+  });
+  setOpen(false);
+}
 
-  if (toggle && nav) {
-    // Add click event to toggle menu
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      nav.classList.toggle('active');
-      toggle.classList.toggle('active');
-    });
-
-    // Close menu when clicking on nav items
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        toggle.classList.remove('active');
-      });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      const isToggleOrNav = toggle.contains(e.target) || nav.contains(e.target);
-      if (!isToggleOrNav && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        toggle.classList.remove('active');
+function initDeferredVideos() {
+  document.querySelectorAll('[data-video-player]').forEach(player => {
+    const button = player.querySelector('button');
+    const preview = player.querySelector('img');
+    const status = player.querySelector('[role="status"]');
+    let video;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      if (!video) {
+        video = document.createElement('video');
+        video.controls = true;
+        video.playsInline = true;
+        video.muted = true;
+        video.preload = 'none';
+        video.poster = preview.src;
+        video.width = Number(preview.getAttribute('width'));
+        video.height = Number(preview.getAttribute('height'));
+        video.setAttribute('aria-label', button.dataset.label);
+        video.setAttribute('aria-describedby', player.dataset.description);
+        video.addEventListener('error', () => {
+          video.hidden = true;
+          preview.hidden = false;
+          button.hidden = false;
+          status.textContent = 'Video could not load. The preview and explanation are still available. Press Play to retry.';
+        });
+        player.querySelector('.video-stage').append(video);
+      }
+      status.textContent = '';
+      preview.hidden = true;
+      video.hidden = false;
+      button.hidden = true;
+      // No media element or source exists until this explicit visitor action.
+      video.src = player.dataset.video;
+      video.focus();
+      try {
+        await video.play();
+      } catch (error) {
+        if (!video.error) status.textContent = 'Press Play in the video controls to start playback.';
       }
     });
-
-    // Mark as initialized after all event listeners are successfully added
-    mobileMenuInitialized = true;
-  }
+  });
 }
