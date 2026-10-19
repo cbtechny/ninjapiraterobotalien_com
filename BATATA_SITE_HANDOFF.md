@@ -128,3 +128,12 @@ Static local links/assets and `git diff --check` passed. Browser script passed a
 ### Next content priority
 
 Capture a real current close-finish decision, not another decorative illustration. See `docs/BATATA_CAPTURE_BRIEF.md`. Kit and store CTAs remain deferred. No merge, deployment, remote push, or game project change.
+
+
+## Character likeness correction — October 18, 2026
+
+Authoritative references supplied by Chris: `characters/ace/Ace_Final.png` and `characters/pampa/pampa_final.webp` in the local Sackjack-MOBILE source checkout. Imagegen edits correct Ace to a backward blue/teal cap, green tuft, warm brown body and pale spots; Pampa now has teal-green hair, eyebrows and moustache. Hero composition, Ninja, scenery and card table retained. Updated hero and both roster portraits use versioned v2 WebP files, with PNG masters preserved. Kickoff-post social metadata now uses the corrected Ace portrait. Older promotional assets remain as historical files, not current homepage references.
+
+Existing Lucky recordings have not been altered or presented as new captures. A visible earlier-build note explains that character artwork/HUD may differ, while the published Lucky rules remain source-verified. No game source changes, merge, deployment or PR publication performed.
+
+Character-pass QA: six-width Chrome verification passed, including zero media downloads before Play and playback/error/no-JavaScript checks. Focused portrait checks at 1440, 390 and 320px decoded all roster images successfully with no overflow; desktop/mobile hero and roster screenshots inspected. Roster media now uses square framing to retain cap/hair silhouettes. Evidence: `.test-server/characters-hero-1440.png`, `characters-roster-1440.png`, `characters-roster-390.png`, `characters-page-320.png`. Old artwork and game source sheets remain untouched.
