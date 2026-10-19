@@ -1,3 +1,19 @@
+# Current repair state — October 18, 2026
+
+This repair targets currdev at 9b72b9f, preserving its homepage, artwork, mechanics text and two deferred gameplay videos. The primary hero action is now Follow on Threads; gameplay is secondary. Static update links remain authored HTML; redundant runtime article fetching is removed. Partial failures retain complete navigation/footer, and delayed success preserves engaged components. Maintained pages have skip/main semantics, current-navigation state, no-referrer and same-origin script CSP. The existing early effects script is externalized without changing its behavior.
+
+Pages stages only referenced delivery assets, including CSS and JS references. Temporary recordings, source-only artwork and asset documentation remain in Git but are not published. The three 64px approved icon derivatives total 9,230 bytes versus 279,496 bytes for their sources.
+
+Production remains https://ninjapiraterobotalien.com/ at the previously verified main deployment 165fa44; neither this branch nor the older main-based repair is deployed. The main-based repair is retained locally and is not merged here. No historical game export is imported into currdev.
+
+Google Fonts remain external: exact files, redistribution notices and cross-browser visual parity have not been packaged/verified. Meta CSP does not supply frame-ancestors or other header-only protections. No analytics, signup, Kit, artwork or gameplay export was added. Future repository commits use the verified GitHub noreply identity; historical personal email/path exposure remains, with no rewrite or rotation.
+
+Owner checklist: review account private-email/push settings; approve Kit account/public form, consent/privacy/retention and sender details before collection, then verify double opt-in, bot protection, generic redirects and unsubscribe. Physical-device, screen-reader and audible playback checks remain unperformed. Merge/deploy require owner approval.
+
+The remainder is a historical implementation record. Its hero, video-count, branch and CTA descriptions are superseded by the current state above.
+
+---
+
 # Batata website first pass
 
 Revision: October 18, 2026. Branch: `codex/batata-site-luckys`, based on `currdev` at `ad3c27fe72540614a426316357cd8bbc977cfeac`.
@@ -12,7 +28,7 @@ Each of the three gameplay players initially contains a still, explanation, and 
 
 ## Current game source audit
 
-Read directly from `C:/Users/chris/Projects/batata` on October 18, 2026; no game files or exports changed.
+Read directly from the local Batata game repository on October 18, 2026; no game files or exports changed.
 
 | Published contract | Source evidence |
 | --- | --- |

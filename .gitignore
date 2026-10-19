@@ -21,3 +21,6 @@
 
 # Generated source maps are not needed in the production site by default.
 *.map
+
+_site/
+.test-server-port.py

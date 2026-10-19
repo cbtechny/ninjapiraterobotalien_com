@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Kickoff: Batata! Spud Royale Card Battler | NPRA Games</title>
   <meta name="description" content="Introducing Batata! Spud Royale, a funny potato card battler. Learn about Ninja Pirate Robot Alien, a fun indie game studio dedicated to quirky games.">
@@ -27,12 +29,37 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <!-- Header Placeholder - Injected via JS -->
-  <div id="header-placeholder"><nav class="fallback-nav" aria-label="Primary"><a href="/">Batata! Spud Royale</a> · <a href="/devlog/index.html">Devlog</a> · <a href="/about/index.html">About</a></nav></div>
+  <div id="header-placeholder">
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/index.html" class="brand" aria-label="Batata! Spud Royale home">
+        <span class="brand-title">Batata! Spud Royale</span>
+        <span class="brand-sub">Ninja Pirate Robot Alien</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" hidden>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html" data-nav="home">Home</a></li>
+          <li><a href="/devlog/index.html" data-nav="devlog">Devlog</a></li>
+          <li><a href="/about/index.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+</div>
 
   <!-- Article Content -->
-  <article class="article-content">
-    <a href="../index.html" class="back-link">Back to Devlogs</a>
+  <main id="main-content" tabindex="-1"><article class="article-content">
+    <a href="/devlog/index.html" class="back-link">Back to Devlogs</a>
 
     <header class="article-header">
       <h1>Project Kickoff</h1>
@@ -109,12 +136,26 @@
     </section>
 
     <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--color-surface-light);">
-      <a href="../index.html" class="back-link">Back to Devlogs</a>
+      <a href="/devlog/index.html" class="back-link">Back to Devlogs</a>
     </footer>
-  </article>
+  </article></main>
 
   <!-- Footer Placeholder - Injected via JS -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2026 Ninja Pirate Robot Alien.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/index.html">Home</a>
+        <a href="/devlog/index.html">Devlog</a>
+        <a href="/about/index.html">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</div>
 
   <script src="../../script.js"></script>
 </body>

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Batata! Spud Royale: Blackjack Card Battler | Ninja Pirate Robot Alien</title>
   <meta name="description" content="Play the hand. Outlast the potato. Meet Batata! Spud Royale, a blackjack card battler with quick decisions, automatic Luckys, and tournament rivals.">
@@ -20,33 +22,7 @@
   <meta property="twitter:description" content="Play the hand. Outlast the potato. Meet Batata! Spud Royale, a blackjack card battler with quick decisions, automatic Luckys, and tournament rivals.">
   <meta property="twitter:image" content="https://ninjapiraterobotalien.com/assets/images/home/batata-hero-v2.webp">
 
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var forcedMode = null;
-
-      try {
-        var params = new URLSearchParams(window.location.search);
-        var requestedMode = params.get('effects');
-
-        if (requestedMode === 'lite' || requestedMode === 'full') {
-          window.localStorage.setItem('site-effects-mode', requestedMode);
-          forcedMode = requestedMode;
-        } else if (requestedMode === 'auto') {
-          window.localStorage.removeItem('site-effects-mode');
-        } else {
-          forcedMode = window.localStorage.getItem('site-effects-mode');
-        }
-      } catch (error) {
-        forcedMode = null;
-      }
-
-      var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if (forcedMode === 'lite' || (forcedMode !== 'full' && connection && connection.saveData)) {
-        root.classList.add('effects-lite');
-      }
-    })();
-  </script>
+  <script src="/effects.js"></script>
   <link rel="preload" as="image" href="/assets/images/home/batata-hero-v2.webp" fetchpriority="high">
   <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.ico">
@@ -55,8 +31,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="home-page">
-  <div id="header-placeholder"><nav class="fallback-nav" aria-label="Primary"><a href="/">Batata! Spud Royale</a> · <a href="/devlog/index.html">Devlog</a> · <a href="/about/index.html">About</a></nav></div>
-  <main id="main">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="header-placeholder">
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/index.html" class="brand" aria-label="Batata! Spud Royale home">
+        <span class="brand-title">Batata! Spud Royale</span>
+        <span class="brand-sub">Ninja Pirate Robot Alien</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" hidden>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html" data-nav="home">Home</a></li>
+          <li><a href="/devlog/index.html" data-nav="devlog">Devlog</a></li>
+          <li><a href="/about/index.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+</div>
+  <main id="main-content" tabindex="-1">
     <header class="batata-hero">
       <div class="hero-art">
         <img src="/assets/images/home/batata-hero-v2.webp" alt="Ace, Pampa, and Ninja ready for a potato card battle" width="1280" height="720" fetchpriority="high">
@@ -64,7 +65,7 @@
       <div class="hero-intro"><p class="kicker">A single-player blackjack battler</p><h1>Batata! <span>Spud Royale</span></h1>
         <p class="hero-deck">Play the hand. Outlast the potato.</p>
         <p>Take turns against the dealer. Turn Coins into attacks, protection, or a little more breathing room. Stay standing longer than the other potato.</p>
-        <div class="btn-group"><a class="btn btn-primary" href="#how-to-play">How do I outlast them?</a><a class="btn btn-secondary" href="#development">Follow development</a></div>
+        <div class="btn-group"><a class="btn btn-primary" href="https://www.threads.com/ninjapiraterobotalien/" target="_blank" rel="noopener noreferrer">Follow on Threads</a><a class="btn btn-secondary" href="#how-to-play">How do I outlast them?</a></div>
         <p class="platform-note">In development · Planned for Google Play and Amazon Fire tablets.</p>
       </div>
     </header>
@@ -125,6 +126,20 @@
       <article class="panel card"><h3>From the devlog</h3><div id="latest-intel-list" class="latest-list"><a href="/devlogs/posts/002.html"><strong>Building the Island</strong><br>January 10, 2026</a><a href="/devlogs/posts/001.html"><strong>Project Kickoff</strong><br>January 1, 2026</a></div><p class="revision-note">Mechanics wording revised October 18, 2026. Original publication dates retained.</p><a href="/devlog/index.html">All development updates →</a></article>
     </div></section>
   </main>
-  <div id="footer-placeholder"><footer class="container"><p>© 2026 Ninja Pirate Robot Alien · <a href="/about/index.html">About the studio</a></p></footer></div>
+  <div id="footer-placeholder">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2026 Ninja Pirate Robot Alien.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/index.html">Home</a>
+        <a href="/devlog/index.html">Devlog</a>
+        <a href="/about/index.html">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</div>
   <script src="/script.js"></script>
 </body></html>
