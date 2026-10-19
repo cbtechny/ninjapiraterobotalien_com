@@ -992,38 +992,3 @@ img {
     margin-top: 2rem;
   }
 }
-
-/* Focus uses light and dark rings so both remain distinct on gradients. */
-[hidden] { display: none !important; }
-:focus-visible { outline: 3px solid #fff; outline-offset: 3px; box-shadow: 0 0 0 6px #0a0a0a; }
-.skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 2000; padding: 0.75rem 1rem; background: #fff; color: #102e35; transform: translateY(-200%); }
-.skip-link:focus { transform: translateY(0); }
-.main-nav a.is-active, .footer-nav a.is-active { color: #ffcc00; text-decoration: underline; text-underline-offset: 0.4em; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: center; margin-top: 2rem; }
-.hero-actions .cta-button { color: #ffcc00; border-color: #ffcc00; }
-.secondary-action { font-size: 1rem; text-decoration: underline; }
-.platform-note { margin: 1.5rem auto; color: #c4c4c4; font-size: 1rem; }
-.gameplay-summary { max-width: 65ch; margin: 3rem auto 0; text-align: left; scroll-margin-top: 6rem; }
-.gameplay-summary h2 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-.name-reveal__is-now { font-size: 0.9rem; }
-.article-content { max-width: 72ch; }
-.article-content > section > p { max-width: 65ch; }
-.historical-note { max-width: 72ch; margin: 2rem auto; padding: 1rem; border-left: 4px solid #ffcc00; color: #ddd; background: #1a1a1a; }
-.historical-note a { color: #ffcc00; }
-.hero .hero-tagline { color: #0a0a0a; background: rgba(255,255,255,0.9); padding: 0.5rem; margin-inline: auto; border-radius: 4px; }
-.gallery-item { display: block; }
-.social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 1rem 0; }
-.social-links a { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
-.social-links img { width: 24px; height: 24px; object-fit: contain; margin: 0; }
-.social-links .threads-icon { background: #fff; border-radius: 4px; }
-@media (max-width: 768px) {
-  .main-nav:not(.menu-ready) { position: static; max-height: none; overflow: visible; width: 100%; }
-  .header-content:has(.main-nav:not(.menu-ready)) { flex-wrap: wrap; }
-  .hero-actions { gap: 1rem; }
-  .article-content { padding-inline: 1rem; }
-}
-
-@media (max-width: 768px) {
-  .main-nav { transition: none; }
-  .main-nav.active { max-height: none; }
-}
