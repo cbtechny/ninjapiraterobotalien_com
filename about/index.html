@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Ninja Pirate Robot Alien |Indie Game Studio</title>
   <meta name="description" content="Learn about Ninja Pirate Robot Alien, a fun indie game studio creating quirky games like Batata! Spud Royale, the ultimate funny potato card battler.">
@@ -27,8 +29,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="about-page">
-  <div id="header-placeholder"><nav class="fallback-nav" aria-label="Primary"><a href="/">Batata! Spud Royale</a> · <a href="/devlog/index.html">Devlog</a> · <a href="/about/index.html">About</a></nav></div>
-  <main class="section section-dark">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="header-placeholder">
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/index.html" class="brand" aria-label="Batata! Spud Royale home">
+        <span class="brand-title">Batata! Spud Royale</span>
+        <span class="brand-sub">Ninja Pirate Robot Alien</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" hidden>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html" data-nav="home">Home</a></li>
+          <li><a href="/devlog/index.html" data-nav="devlog">Devlog</a></li>
+          <li><a href="/about/index.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+</div>
+  <main id="main-content" tabindex="-1" class="section section-dark">
     <div class="container">
       <p class="kicker">Studio + press sheet</p>
       <h1>About</h1>
@@ -73,7 +100,7 @@
                     aria-label="Facebook"
                     title="Facebook"
                   >
-                    <img src="/assets/images/about/brand_icons/Facebook_Logo_Primary.webp" alt="Facebook" width="40" height="40">
+                    <img src="/assets/images/social/facebook.webp" alt="Facebook" width="40" height="40">
                   </a>
                   <a
                     class="meta-social-link meta-social-link--threads"
@@ -83,7 +110,7 @@
                     aria-label="Threads"
                     title="Threads"
                   >
-                    <img src="/assets/images/about/brand_icons/threads-logo-black-01.webp" alt="Threads" width="40" height="40">
+                    <img src="/assets/images/social/threads.webp" alt="Threads" width="40" height="40">
                   </a>
                   <a
                     class="meta-social-link"
@@ -93,7 +120,7 @@
                     aria-label="Instagram"
                     title="Instagram"
                   >
-                    <img src="/assets/images/about/brand_icons/Instagram_Glyph_Gradient.webp" alt="Instagram" width="40" height="40">
+                    <img src="/assets/images/social/instagram.webp" alt="Instagram" width="40" height="40">
                   </a>
                 </div>
                 <span class="meta-social-handle">@ninjapiraterobotalien</span>
@@ -113,7 +140,21 @@
       </section>
     </div>
   </main>
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2026 Ninja Pirate Robot Alien.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/index.html">Home</a>
+        <a href="/devlog/index.html">Devlog</a>
+        <a href="/about/index.html">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</div>
   <script src="/script.js"></script>
 </body>
 </html>

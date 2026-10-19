@@ -3,7 +3,7 @@ const fs = require('fs');
 const base = process.env.SITE_URL || 'http://127.0.0.1:8766';
 fs.mkdirSync('.test-server', {recursive:true});
 (async()=>{
- const browser=await chromium.launch({executablePath:process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
+ const browser=await chromium.launch({executablePath:process.env.CHROME_PATH || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
  const result={layouts:[],playback:[],errors:[],badResponses:[]};
  for(const width of [1440,1024,768,390,360,320]){
   const page=await browser.newPage({viewport:{width,height:1000}}); const videos=[];
@@ -38,7 +38,7 @@ fs.mkdirSync('.test-server', {recursive:true});
  }
  const failed=await browser.newPage(); await failed.route('**/*.mp4',r=>r.abort()); await failed.goto(base+'/'); await failed.getByRole('button',{name:'Play Ace video'}).click();await failed.waitForTimeout(700);
  result.failure=await failed.locator('[data-video-player]').first().evaluate(p=>({status:p.querySelector('[role=status]').textContent,previewVisible:!p.querySelector('img').hidden,retryVisible:!p.querySelector('button').hidden}));await failed.close();
- const nojs=await browser.newPage({javaScriptEnabled:false,viewport:{width:320,height:900}});let nojsRequests=0;nojs.on('request',r=>{if(/\.(mp4|webm)$/.test(r.url()))nojsRequests++});await nojs.goto(base+'/');result.nojs={requests:nojsRequests,nav:await nojs.locator('.fallback-nav').isVisible(),previews:await nojs.locator('[data-video-player] img').count(),buttons:await nojs.getByRole('button').count()};await nojs.screenshot({path:'.test-server/nojs-320.png',fullPage:true});
+ const nojs=await browser.newPage({javaScriptEnabled:false,viewport:{width:320,height:900}});let nojsRequests=0;nojs.on('request',r=>{if(/\.(mp4|webm)$/.test(r.url()))nojsRequests++});await nojs.goto(base+'/');result.nojs={requests:nojsRequests,nav:await nojs.locator('.main-nav').isVisible(),previews:await nojs.locator('[data-video-player] img').count(),buttons:await nojs.getByRole('button').count()};await nojs.screenshot({path:'.test-server/nojs-320.png',fullPage:true});
  const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto(base+'/');result.reducedMotion=await reduced.evaluate(()=>({matches:matchMedia('(prefers-reduced-motion: reduce)').matches,animations:document.getAnimations().length,videos:document.querySelectorAll('video').length}));
  for(const url of ['/devlog/index.html','/devlogs/posts/001.html','/devlogs/posts/002.html','/about/index.html','/devlogs/index.html','/sackjack-island/index.html','/sackjack-island/demo.html','/sackjack-island/about.html','/studio/store.html','/studio/about.html','/studio/contact.html']){const p=await browser.newPage();p.on('pageerror',e=>result.errors.push(e.message));await p.goto(base+url,{waitUntil:'networkidle'});await p.close()}
  result.about=[];

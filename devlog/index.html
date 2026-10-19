@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Batata! Spud Royale Devlog: Building a Funny Potato Game | NPRA</title>
   <meta name="description" content="Follow the development of Batata! Spud Royale, a casual card battler. See how our quirky indie game studio builds this unique blackjack strategy game.">
@@ -27,8 +29,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="devlog-hub-page">
-  <div id="header-placeholder"><nav class="fallback-nav" aria-label="Primary"><a href="/">Batata! Spud Royale</a> · <a href="/devlog/index.html">Devlog</a> · <a href="/about/index.html">About</a></nav></div>
-  <main class="section section-dark">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="header-placeholder">
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/index.html" class="brand" aria-label="Batata! Spud Royale home">
+        <span class="brand-title">Batata! Spud Royale</span>
+        <span class="brand-sub">Ninja Pirate Robot Alien</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" hidden>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html" data-nav="home">Home</a></li>
+          <li><a href="/devlog/index.html" data-nav="devlog">Devlog</a></li>
+          <li><a href="/about/index.html" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+</div>
+  <main id="main-content" tabindex="-1" class="section section-dark">
     <div class="container">
       <p class="kicker">Development momentum hub</p>
       <h1>Devlog</h1><p class="revision-note">Revised <time datetime="2026-10-18">October 18, 2026</time>: mechanics wording updated to reflect current Luckys and Coin-funded actions. Original publication date retained.</p>
@@ -79,7 +106,21 @@
       </section>
     </div>
   </main>
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder">
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; 2026 Ninja Pirate Robot Alien.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/index.html">Home</a>
+        <a href="/devlog/index.html">Devlog</a>
+        <a href="/about/index.html">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</div>
   <script src="/script.js"></script>
 </body>
 </html>

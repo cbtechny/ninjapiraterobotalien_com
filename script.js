@@ -1,78 +1,85 @@
-let mobileMenuInitialized = false;
-
-document.addEventListener('DOMContentLoaded', async () => {
+/** Shared components enhance complete static navigation; failed requests leave it intact. */
+document.addEventListener('DOMContentLoaded', () => {
   initDeferredVideos();
-  await injectComponents();
-  await renderLatestIntel();
+  highlightActiveNav();
+  initMobileMenu();
+  injectComponents();
 });
 
 async function injectComponents() {
-  const headerPlaceholder = document.getElementById('header-placeholder');
-  const footerPlaceholder = document.getElementById('footer-placeholder');
-  const tasks = [];
-
-  if (headerPlaceholder) {
-    tasks.push(fetch('/partials/header.html').then(r => r.text()).then(html => {
-      headerPlaceholder.innerHTML = html;
+  await Promise.all(['header', 'footer'].map(async component => {
+    const mount = document.getElementById(`${component}-placeholder`);
+    if (!mount) return;
+    try {
+      const response = await fetch(`/partials/${component}.html`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const html = await response.text();
+      // A slow response must not replace navigation/footer while it is in use.
+      if (mount.contains(document.activeElement) || mount.querySelector('.main-nav.active')) return;
+      // Only repository-authored, same-origin partials are inserted here.
+      mount.innerHTML = html;
       highlightActiveNav();
-      initMobileMenu();
-    }).catch(console.error));
-  }
-
-  if (footerPlaceholder) {
-    tasks.push(fetch('/partials/footer.html').then(r => r.text()).then(html => {
-      footerPlaceholder.innerHTML = html;
-    }).catch(console.error));
-  }
-
-  await Promise.all(tasks);
+      if (component === 'header') initMobileMenu();
+    } catch (error) {
+      console.warn(`${component} unavailable; keeping static fallback.`, error);
+    }
+  }));
 }
 
 function highlightActiveNav() {
-  const normalize = (p) => p.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
-  const path = window.location.pathname;
-  const currentPath = normalize(path);
-
-  document.querySelectorAll('.main-nav a').forEach(link => {
-    const hrefAttr = link.getAttribute('href') || '';
-    const href = normalize(hrefAttr);
-    link.classList.remove('is-active');
-
-    // Exact match
-    if (currentPath === href) {
-      link.classList.add('is-active');
-    }
-    // Sub-path match (e.g., /devlogs/posts/ matches /devlog)
-    else if (href !== '/') {
-      const root = href.split('/')[1]; // e.g., 'devlog' from '/devlog'
-      const pathRoot = path.split('/')[1];
-      if (root && (pathRoot === root || pathRoot === root + 's')) {
-        link.classList.add('is-active');
-      }
-    }
+  const normalize = path => path.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
+  const current = normalize(location.pathname);
+  document.querySelectorAll('.main-nav a, .footer-nav a').forEach(link => {
+    const target = normalize(new URL(link.href).pathname);
+    const exact = current === target;
+    const section = (target === '/devlog' && current.startsWith('/devlogs/posts/')) || (target !== '/' && new URL(link.href).pathname.endsWith('/index.html') && current.startsWith(target + '/'));
+    link.classList.toggle('is-active', exact || section);
+    link.removeAttribute('aria-current');
+    if (exact || section) link.setAttribute('aria-current', exact ? 'page' : 'location');
   });
 }
 
 function initMobileMenu() {
-  if (mobileMenuInitialized) return;
   const toggle = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.main-nav');
-  if (!toggle || !nav) return;
-
+  if (!toggle || !nav || toggle.dataset.initialized) return;
+  toggle.dataset.initialized = 'true';
+  toggle.hidden = false;
+  const small = matchMedia('(max-width: 768px)');
+  let open = false;
+  function setOpen(value, restoreFocus = false) {
+    open = value;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.classList.toggle('active', open);
+    nav.classList.toggle('active', open);
+    nav.hidden = small.matches && !open;
+    nav.inert = small.matches && !open;
+    if (restoreFocus) toggle.focus();
+  }
+  nav.classList.add('menu-ready');
   toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('active');
+    setOpen(!open);
+    if (open) nav.querySelector('a')?.focus();
   });
-
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a')) setOpen(false, small.matches);
   });
-
-  mobileMenuInitialized = true;
+  // Bind to this header so replacement does not leave document listeners behind.
+  toggle.closest('header').addEventListener('keydown', event => {
+    if (event.key === 'Escape' && open) {
+      event.preventDefault();
+      setOpen(false, true);
+    }
+  });
+  toggle.closest('header').addEventListener('focusout', event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+  });
+  small.addEventListener('change', () => {
+    if (!toggle.isConnected) return;
+    const restore = small.matches && nav.contains(document.activeElement);
+    setOpen(false, restore);
+  });
+  setOpen(false);
 }
 
 function initDeferredVideos() {
@@ -116,30 +123,4 @@ function initDeferredVideos() {
       }
     });
   });
-}
-
-async function renderLatestIntel() {
-  const mount = document.getElementById('latest-intel-list');
-  if (!mount) return;
-
-  const posts = [
-    { id: '002', url: '/devlogs/posts/002.html' },
-    { id: '001', url: '/devlogs/posts/001.html' }
-  ];
-
-  try {
-    const parsed = await Promise.all(posts.map(async post => {
-      const text = await fetch(post.url).then(r => r.text());
-      const title = text.match(/<h1>(.*?)<\/h1>/i)?.[1] || `Devlog #${post.id}`;
-      const meta = text.match(/<p class="article-meta">(.*?)<\/p>/i)?.[1] || '';
-      const date = meta.split('•')[0]?.trim() || 'Recent';
-      return { ...post, title, date };
-    }));
-
-    mount.innerHTML = parsed.map(item =>
-      `<a href="${item.url}"><strong>${item.title}</strong><br><span class="meta">${item.date}</span></a>`
-    ).join('');
-  } catch (err) {
-    mount.innerHTML = '<a href="/devlog/index.html"><strong>Read the latest updates</strong></a>';
-  }
 }

@@ -1,0 +1,715 @@
+{
+  "layouts": [
+    {
+      "url": "/",
+      "width": 320,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Home"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlog/index.html",
+      "width": 320,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/about/index.html",
+      "width": 320,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "About"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/001.html",
+      "width": 320,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/002.html",
+      "width": 320,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/sackjack-island/gallery.html",
+      "width": 320,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/",
+      "width": 390,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Home"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlog/index.html",
+      "width": 390,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/about/index.html",
+      "width": 390,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "About"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/001.html",
+      "width": 390,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/002.html",
+      "width": 390,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/sackjack-island/gallery.html",
+      "width": 390,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/",
+      "width": 768,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Home"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlog/index.html",
+      "width": 768,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/about/index.html",
+      "width": 768,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "About"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/001.html",
+      "width": 768,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/002.html",
+      "width": 768,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/sackjack-island/gallery.html",
+      "width": 768,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/",
+      "width": 1440,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Home"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlog/index.html",
+      "width": 1440,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/about/index.html",
+      "width": 1440,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "About"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/001.html",
+      "width": 1440,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/devlogs/posts/002.html",
+      "width": 1440,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [
+        "Devlog"
+      ],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    },
+    {
+      "url": "/sackjack-island/gallery.html",
+      "width": 1440,
+      "overflow": false,
+      "main": 1,
+      "mainOutsideHeader": true,
+      "images": true,
+      "referrer": "no-referrer",
+      "active": [],
+      "videos": 0,
+      "fonts": [
+        {
+          "family": "Bangers",
+          "status": "loaded"
+        },
+        {
+          "family": "Inter",
+          "status": "loaded"
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "failures": [
+    {
+      "failure": "network",
+      "navigation": true,
+      "footer": true,
+      "menu": true,
+      "escape": true
+    },
+    {
+      "failure": 404,
+      "navigation": true,
+      "footer": true,
+      "menu": true,
+      "escape": true
+    },
+    {
+      "failure": 500,
+      "navigation": true,
+      "footer": true,
+      "menu": true,
+      "escape": true
+    }
+  ],
+  "nojs": [
+    "/",
+    "/devlog/index.html",
+    "/about/index.html",
+    "/devlogs/posts/001.html",
+    "/devlogs/posts/002.html",
+    "/sackjack-island/gallery.html"
+  ],
+  "errors": [],
+  "csp": [],
+  "externalFailures": [],
+  "icons": [
+    {
+      "src": "/assets/images/social/facebook.webp",
+      "bytes": 2202,
+      "rendered": {
+        "width": 22,
+        "height": 22
+      }
+    },
+    {
+      "src": "/assets/images/social/threads.webp",
+      "bytes": 1172,
+      "rendered": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "src": "/assets/images/social/instagram.webp",
+      "bytes": 5856,
+      "rendered": {
+        "width": 22,
+        "height": 22
+      }
+    }
+  ],
+  "delayedSuccessPreservesFocus": true,
+  "referrerNavigation": true,
+  "inlineScriptBlocked": true
+}

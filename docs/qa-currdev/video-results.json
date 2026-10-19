@@ -1,0 +1,111 @@
+{
+  "layouts": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "heroLoaded": true,
+      "heroAspect": 1.7865178376012256,
+      "videoElements": 0,
+      "videoRequestsBeforePlay": 0
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "heroLoaded": true,
+      "heroAspect": 1.7879282218597063,
+      "videoElements": 0,
+      "videoRequestsBeforePlay": 0
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "heroLoaded": true,
+      "heroAspect": 1.7853658536585366,
+      "videoElements": 0,
+      "videoRequestsBeforePlay": 0
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "heroLoaded": true,
+      "heroAspect": 1.7935402153261557,
+      "videoElements": 0,
+      "videoRequestsBeforePlay": 0
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "heroLoaded": true,
+      "heroAspect": 1.7950138504155124,
+      "videoElements": 0,
+      "videoRequestsBeforePlay": 0
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "heroLoaded": true,
+      "heroAspect": 1.7974683544303798,
+      "videoElements": 0,
+      "videoRequestsBeforePlay": 0
+    }
+  ],
+  "playback": [
+    {
+      "src": "http://127.0.0.1:8897/assets/videos/luckys/ace-lucky.mp4",
+      "playing": true,
+      "controls": true,
+      "inline": true,
+      "muted": true,
+      "width": 720,
+      "height": 900
+    },
+    {
+      "src": "http://127.0.0.1:8897/assets/videos/luckys/pampa-lucky.mp4",
+      "playing": true,
+      "controls": true,
+      "inline": true,
+      "muted": true,
+      "width": 720,
+      "height": 900
+    }
+  ],
+  "errors": [],
+  "badResponses": [],
+  "fullscreen": true,
+  "failure": {
+    "status": "Video could not load. The preview and explanation are still available. Press Play to retry.",
+    "previewVisible": true,
+    "retryVisible": true
+  },
+  "nojs": {
+    "requests": 0,
+    "nav": true,
+    "previews": 2,
+    "buttons": 0
+  },
+  "reducedMotion": {
+    "matches": true,
+    "animations": 0,
+    "videos": 0
+  },
+  "about": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "imagesLoaded": true,
+      "placeholder": false
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "imagesLoaded": true,
+      "placeholder": false
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "imagesLoaded": true,
+      "placeholder": false
+    }
+  ]
+}
