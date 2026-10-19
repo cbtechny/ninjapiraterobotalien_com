@@ -20,6 +20,12 @@ const pages=['/','/devlog/index.html','/about/index.html','/devlogs/posts/001.ht
    await p.keyboard.press('Tab');assert.equal(await p.locator(':focus').textContent(),'Skip to content');
    await p.keyboard.press('Enter');assert.equal(await p.locator(':focus').getAttribute('id'),'main-content');
    if(url==='/'){
+    assert.equal(await p.locator('.demo-card h3').first().textContent(),'Draw an Ace \u2192 +1 Coin');
+    assert.equal(await p.locator('.demo-card h3').nth(1).textContent(),'Draw a 6 \u2192 restore 1 HP');
+    assert.equal(await p.locator('#pampa-explanation').textContent(),'Pampa\u2019s 6 restores 1 HP when he needs it. Here he\u2019s already full, so the Lucky triggers but adds no health.');
+    assert.equal(await p.locator('.hero-intro .platform-note').textContent(),'In development \u00b7 Planned for Google Play and Amazon Fire tablets.');
+    assert.equal(await p.locator('a[href="#luckys"]').textContent(),'See the potatoes get Lucky \u2193');
+    assert((await p.locator('#luckys').textContent()).includes('Suits don\u2019t. Your rival has a Lucky too\u2014and'));
     assert.equal(await p.locator('.hero-intro .btn-group a').first().textContent(),'Follow on Threads');
     if(width<=768){
      const toggle=p.locator('.mobile-menu-toggle');const nav=p.locator('.main-nav');
