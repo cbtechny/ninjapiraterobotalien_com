@@ -1,6 +1,8 @@
 # GitHub Pages Privacy / Secret Exposure Audit
 
-Audit date: 2026-08-25
+Historical audit date: 2026-08-25
+
+Historical snapshot, not current deployment or severity guidance. See `BATATA_SITE_HANDOFF.md` and `docs/repair-verification.md` for the October 2026 state. Existing email/path history is a privacy consideration, not a confirmed credential emergency. No rewrite is authorized.
 Repository: `cbtechny/ninjapiraterobotalien_com`
 Audited refs: `main`, `origin/main`, `origin/currdev`, and other local remote refs reachable from `--all`
 
@@ -19,7 +21,7 @@ The GitHub Pages workflow previously uploaded the entire repository. That made r
 Severity: MEDIUM
 Type: Local Windows path / local username
 File: `README.md:51` (original location)
-Exposure: `C:\Users\<REDACTED>\Local Apps\Godot\4.7\Godot_v4.7-stable_win64.exe`
+Exposure: a machine-specific Godot executable path
 Current branch: CONTAINED; replaced with the generic `godot` command
 Pages reachability before containment: YES, because the Pages workflow uploaded `.`
 Current Pages reachability after the workflow change: NO once the changed workflow is deployed; `README.md` is not staged. The containment is committed locally, but the existing live deployment was not changed because the push is still blocked by missing GitHub credentials.
@@ -27,7 +29,7 @@ Git history: PRESENT
 First known offending commit: `cacde2b903dc3dceec914325df8d2d652a8c66ba`
 Most recent known offending commit: `aa6c5731e2b1383a5b40db73f0b9b593767a52a0`
 Credential rotation: NO
-History cleanup required: YES; remove or replace this line in reachable history
+History cleanup: optional owner decision; current containment does not erase historical copies
 
 ### Finding 002
 

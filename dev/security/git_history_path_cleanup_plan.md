@@ -1,6 +1,6 @@
 # Git History Cleanup Plan: Confirmed Local Path
 
-Status: prepared, not executed
+Status: historical proposal, not executed or authorized by the October 2026 website repair. Ref lists and consequences below require fresh verification before any separately authorized work.
 Scope: Finding 001 only
 Date: 2026-08-26
 
