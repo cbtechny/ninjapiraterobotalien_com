@@ -74,3 +74,66 @@ No deployment, merge, remote push, Kit integration, email collection, signup for
 ## Next conversion phase
 
 When Kit integration is requested, change the primary CTA to **Email me when Batata launches**, with confirmed opt-in and a clear email promise. Keep optional playtesting interest separate from launch notifications. Only introduce store purchase links once listings are live and device audiences are confirmed.
+
+
+## Survival-loop pass — October 18, 2026
+
+Branch: `codex/batata-survival-loop`, based on local `currdev` at `7ac66b0`. Starting worktree was clean: the earlier stylesheet changes and source reels had already reached currdev. No source media were modified or removed.
+
+### Delivered
+
+The homepage now leads with “Play the hand. Outlast the potato.” and a CTA to the four-step gameplay loop, before Lucky demonstrations. It explains dealer resolution, saving/spending Coins, opponent turns, health attrition, character incentives, and eight-entrant/two-loss tournament stakes. Native expandable details provide exact rewards, damage, costs and resource limits. A worked example connects a non-bust hand reward to the 2-Coin action decision.
+
+Character purchases are explicitly planned progression: persistent Gold is distinct from bout Coins, and the complete earning loop is not advertised as available. Rechecked `batata_rules.gd`, `combatant_state.gd`, character definitions/resolver, `game_session.gd`, `player_profile.gd`, and tournament state against agent notes. Profile Gold starts at zero and purchase code spends it; no production gameplay award path was found in the source audit. This is a source finding, not a fresh gameplay test.
+
+The old `hp_damage.webm` player and poster are no longer referenced by the homepage; historical files remain. A CSS-only island construction illustration and text fill its place. About now uses a studio-name text panel rather than the banner placeholder; its social metadata uses the tracked Ace illustration instead of the placeholder. New untracked artwork appeared during this pass and was preserved without adding dependencies on it. No images or logos generated. The hero mask is smaller but remains opaque and image-relative; mobile roster cards are horizontal. About contact text wraps at 320px, and its secondary button has a dark background for legibility.
+
+### Verification
+
+- Static: JavaScript syntax checks, `git diff --check`, local HTML URL/asset scan (no missing targets), homepage section order and retired-media references checked.
+- Browser: Chrome responsive simulation at 1440, 1024, 768, 390, 360 and 320px; no homepage overflow, page errors or HTTP errors; zero video elements and zero MP4/WebM requests before Play, including after scrolling. Both Lucky clips played; native controls, fullscreen, replay, keyboard activation, error fallback, no-JavaScript navigation/previews, and reduced-motion behavior passed. Rules opened/closed with keyboard input at every tested width.
+- About: rendered at 1440, 390 and 320px; no overflow after fixing long contact text; images loaded and old placeholder absent.
+- Visual: desktop/mobile homepage, expanded mobile rules and About previews inspected. Contrast/readability received visual review, not a complete automated accessibility audit. No physical-device certification.
+- Updated `scripts/verify-batata-site.cjs` for two players, keyboard rules and About checks. Evidence: `.test-server/qa-results.json`; previews: `home-1440.png`, `home-390.png`, `about-1440.png`, `about-320.png`, `rules-390.png` in `.test-server/`.
+
+### Assets still needed
+
+1. Current bout footage and poster: hand resolution → Coin reward → action choice → consequence, with clean current UI.
+2. Approved studio logo for About; the text treatment is intentional interim presentation.
+3. Approved Batata title/logo and hero artwork to retire the old-name cover treatment.
+4. Optional tournament/hearts and character-selection footage; label unlock previews as development footage until Gold earning is implemented.
+5. Optional Pampa footage below full HP showing healing; existing “HP full” clip remains accurately explained.
+
+No game code, game exports, Kit, signup forms, store purchase links, deployment, merge or remote push changed.
+
+
+## Marketing and artwork pass — October 18, 2026
+
+Continues `codex/batata-survival-loop`. The current page now calls Batata a single-player blackjack battler, anchors the pitch in outlasting a rival, and uses shorter decision-led copy. The 2-Coin worked example is expandable beside the existing exact-rule details. Main content order, platform caveats, Pampa full-health explanation and planned Gold progression are retained.
+
+### Artwork integration
+
+Used the supplied reference-based hero, studio workshop, and island construction artwork as optimized WebP derivatives. No image generation or master edits were performed. The generated title treatment remains a separate unintegrated concept; the accessible game title stays HTML text. Supplied PNG masters and their original handoff are retained unchanged alongside the optimized derivatives for provenance. The title concept is preserved as a source asset but is not referenced by the website.
+
+- Hero: `assets/images/home/batata-hero.webp`, 1280×720, 147,290 bytes.
+- Studio: `assets/images/about/npra-studio-workshop.webp`, 960×600, 161,580 bytes.
+- Construction: `assets/images/shared/potato-island-construction.webp`, 800×500, 97,624 bytes.
+
+The old lettered hero and opaque mask are no longer used on the homepage. Desktop uses a title/copy-and-art split; mobile preserves the entire hero. Studio art is labeled through its alt text as illustration, not a logo or workplace photo. Construction artwork is an interim preview slot; it is not presented as gameplay. Homepage and About social images now use the corresponding WebP art.
+
+### Checks
+
+Static local links/assets and `git diff --check` passed. Browser script passed at 1440, 1024, 768, 390, 360 and 320px: hero loaded without overflow, both expandable sections worked by keyboard, no video elements/downloads before Play, both clips played/replayed, fullscreen/error/no-JavaScript/reduced-motion checks passed. About loaded without overflow at 1440, 390 and 320px. No recorded homepage JavaScript/HTTP errors. Desktop/mobile homepage and About screenshots visually inspected; this is responsive Chrome QA, not physical-device testing or a complete accessibility audit.
+
+### Next content priority
+
+Capture a real current close-finish decision, not another decorative illustration. See `docs/BATATA_CAPTURE_BRIEF.md`. Kit and store CTAs remain deferred. No merge, deployment, remote push, or game project change.
+
+
+## Character likeness correction — October 18, 2026
+
+Authoritative references supplied by Chris: `characters/ace/Ace_Final.png` and `characters/pampa/pampa_final.webp` in the local Sackjack-MOBILE source checkout. Imagegen edits correct Ace to a backward blue/teal cap, green tuft, warm brown body and pale spots; Pampa now has teal-green hair, eyebrows and moustache. Hero composition, Ninja, scenery and card table retained. Updated hero and both roster portraits use versioned v2 WebP files, with PNG masters preserved. Kickoff-post social metadata now uses the corrected Ace portrait. Older promotional assets remain as historical files, not current homepage references.
+
+Existing Lucky recordings have not been altered or presented as new captures. A visible earlier-build note explains that character artwork/HUD may differ, while the published Lucky rules remain source-verified. No game source changes, merge, deployment or PR publication performed.
+
+Character-pass QA: six-width Chrome verification passed, including zero media downloads before Play and playback/error/no-JavaScript checks. Focused portrait checks at 1440, 390 and 320px decoded all roster images successfully with no overflow; desktop/mobile hero and roster screenshots inspected. Roster media now uses square framing to retain cap/hair silhouettes. Evidence: `.test-server/characters-hero-1440.png`, `characters-roster-1440.png`, `characters-roster-390.png`, `characters-page-320.png`. Old artwork and game source sheets remain untouched.
