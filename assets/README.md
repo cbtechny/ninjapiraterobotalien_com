@@ -1,9 +1,47 @@
-# Website delivery assets
+# NinjaPirate Studio Assets
 
-Source artwork is retained here for authoring and historical reference. Pages publishes only the images explicitly listed in `scripts/stage-site.py`; it does not recursively publish this directory or this documentation.
+This directory contains all static assets for the NinjaPirate Studio website.
 
-The title and potato gallery PNGs are referenced public delivery assets. Unreferenced `hmpganim` and `placeholders` files remain source-only. Temporary originals must never be added to the publication manifest.
+## Structure
 
-`images/social/*.webp` are 64×64 derivatives of the approved Facebook, Threads and Instagram WebPs in currdev at `9b72b9f`. They preserve proportions, alpha and brand artwork, contain no added metadata, and display at 24px with text labels on Contact. The black Threads mark has a white backing in CSS. Sources total 279,496 bytes; derivatives total 9,230 bytes. No original source was changed or deleted.
+- **images/** - Screenshots, concept art, thumbnails, and general imagery
+- **logos/** - Studio logo variations and branding assets
+- **ui/** - UI elements, icons, and interface components
+- **css/** - Additional stylesheets (if needed beyond main style.css)
+- **js/** - Additional JavaScript modules (if needed beyond main script.js)
 
-When adding assets, verify HTML, CSS and JavaScript references against the staged output and inspect the browser appearance. Keep source-only exports outside the manifest.
+## Image Guidelines
+
+### Thumbnails
+- Use 16:9 aspect ratio for project cards
+- Recommended size: 800x450px
+- Optimize for web (keep under 200KB)
+
+### Screenshots
+- Full resolution: 1920x1080px or higher
+- Gallery images: 1200x675px
+- Always include alt text
+
+### Logos
+- Provide SVG when possible for scalability
+- Include PNG fallbacks at multiple sizes (256px, 512px, 1024px)
+- Transparent backgrounds for overlay use
+
+## Naming Convention
+
+Use descriptive, lowercase names with hyphens:
+- `sackjack-island-thumbnail.png`
+- `beach-landing-screenshot-01.png`
+- `studio-logo-full-color.svg`
+
+## Asset Placeholder
+
+Currently, assets are using CSS-based placeholders with emoji/gradient backgrounds. 
+Replace these with actual assets as they become available during development.
+
+## Performance Notes
+
+- Compress all images before uploading
+- Use modern formats (WebP with PNG fallback)
+- Implement lazy loading for gallery images
+- Consider using a CDN for production deployment

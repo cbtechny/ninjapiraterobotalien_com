@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Sackjack Island - NinjaPirate Studio</title>
-  <meta name="robots" content="noindex">
   <meta name="description" content="View screenshots, concept art, and visual development for Sackjack Island.">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="../favicon.ico">
@@ -17,47 +14,14 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
   <!-- Header Placeholder - Injected via JS -->
-  <div id="header-placeholder">
-<header class="site-header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <a href="/index.html" class="logo-link">
-          <span class="logo-text">N.P.R.A.</span>
-          <span class="logo-accent">Games</span>
-        </a>
-      </div>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded="false" hidden>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="main-nav" id="primary-navigation" aria-label="Primary">
-        <ul>
-          <li><a href="/index.html" class="nav-home">Home</a></li>
-          <li><a href="/sackjack-island/index.html">Earlier game</a></li>
-          <li><a href="/devlogs/index.html">Devlogs</a></li>
-          <li><a href="/studio/store.html">Store</a></li>
-          <li><a href="/studio/about.html">About</a></li>
-          <li><a href="/studio/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
-
-  </div>
-  <main id="main-content" tabindex="-1">
-  <p class="historical-note">Historical Sackjack Island page. The game is now Batata: Spud Royale and remains in development. Earlier artwork and plans may differ from the current game. <a href="/index.html">Current game information</a>.</p>
-
+  <div id="header-placeholder"></div>
 
   <!-- Page Header -->
   <section class="hero" style="padding: 4rem 2rem; background: linear-gradient(135deg, #ff6b35, #ffcc00);">
     <div class="hero-content">
-      <h1>Historical Sackjack Island Gallery</h1>
-      <p class="hero-tagline">Archived artwork and unfinished placeholders from earlier development. Select an image to view it full size.</p>
+      <h1>Sackjack Island Gallery</h1>
+      <p class="hero-tagline">Explore visuals from the island</p>
     </div>
   </section>
 
@@ -71,8 +35,12 @@
 
       <div class="gallery-grid">
         <!-- Gallery Items with Images -->
-        <a class="gallery-item" href="../assets/images/SackjackIsland_Title_1-18-26.png"><img src="../assets/images/SackjackIsland_Title_1-18-26.png" alt="Sackjack Island Title" style="width: 100%; height: 100%; object-fit: cover;"></a>
-        <a class="gallery-item" href="../assets/images/Potatoes_1-18-26.png"><img src="../assets/images/Potatoes_1-18-26.png" alt="Potato Characters" style="width: 100%; height: 100%; object-fit: cover;"></a>
+        <div class="gallery-item">
+          <img src="../assets/images/SackjackIsland_Title_1-18-26.png" alt="Sackjack Island Title" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="gallery-item">
+          <img src="../assets/images/Potatoes_1-18-26.png" alt="Potato Characters" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <div class="gallery-item">
           <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffcc00, #ff6b35); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
             🏛️
@@ -107,7 +75,7 @@
 
       <div style="text-align: center; margin-top: 3rem;">
         <p style="color: var(--color-text-muted); margin-bottom: 1rem;">
-          This legacy gallery is retained for historical reference; the colored tiles are placeholders, not gameplay screenshots.
+          More screenshots and concept art coming soon as development progresses.
         </p>
         <a href="../devlogs/index.html" class="card-link" style="font-size: 1.1rem;">Follow Development Updates</a>
       </div>
@@ -149,30 +117,31 @@
     <a href="index.html" class="back-link">Back to Sackjack Island</a>
   </section>
 
-  </main>
-
   <!-- Footer Placeholder - Injected via JS -->
-  <div id="footer-placeholder">
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-left">
-        <p>&copy; 2026 Ninja Pirate Robot Alien Studio. All rights reserved.</p>
-      </div>
-      <div class="footer-right">
-        <nav class="footer-nav" aria-label="Footer">
-          <a href="/studio/store.html">Store</a>
-          <a href="/studio/about.html">About</a>
-          <a href="/studio/contact.html">Contact</a>
-          <a href="/devlogs/index.html">Devlogs</a>
-        </nav>
-      </div>
-    </div>
-  </div>
-</footer>
-
-  </div>
+  <div id="footer-placeholder"></div>
 
   <script src="../script.js"></script>
+  <script>
+    // Gallery lightbox functionality using event delegation
+    const galleryGrid = document.querySelector('.gallery-grid');
+    if (galleryGrid) {
+      galleryGrid.addEventListener('click', function(event) {
+        // Check if the clicked element is an image inside a gallery-item
+        const img = event.target.closest('.gallery-item img');
+        if (!img) {
+          return;
+        }
+
+        const modal = document.createElement('div');
+        modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;z-index:1000;cursor:pointer;';
+        const fullImg = document.createElement('img');
+        fullImg.src = img.src;
+        fullImg.style.cssText = 'max-width:90%;max-height:90%;object-fit:contain;border-radius:8px;';
+        modal.appendChild(fullImg);
+        modal.addEventListener('click', () => modal.remove());
+        document.body.appendChild(modal);
+      });
+    }
+  </script>
 </body>
 </html>
