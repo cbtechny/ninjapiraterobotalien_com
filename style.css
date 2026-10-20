@@ -633,6 +633,11 @@ body.devlog-hub-page .devlog-featured-section > .panel {
   box-shadow:0 12px 28px rgba(0,0,0,.2);
 }
 .hero-intro h1 span{display:block;color:#fff4d3;font-size:.43em;line-height:1.2;letter-spacing:.12em;margin-top:.3em;text-shadow:0 2px 0 #703114}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.hero-logo-title,.page-logo-title{font-size:inherit!important;line-height:0!important;letter-spacing:0!important;text-transform:none!important;text-shadow:none!important}
+.hero-logo-title{display:block;width:min(100%,560px);margin:.18em 0 .35em!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+.page-logo-title{display:block;width:min(100%,520px);margin:.2em 0 .6em!important}
+.hero-logo-title img,.page-logo-title img{display:block;width:100%;height:auto}
 .hero-deck{font-family:var(--font-head);font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.1;letter-spacing:.03em;color:#ffd36c}
 .hero-intro>p:not(.hero-deck){max-width:65ch}
 .platform-note,.media-note{margin-top:1.25rem;font-size:.9rem}
