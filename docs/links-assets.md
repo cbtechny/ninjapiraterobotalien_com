@@ -24,3 +24,7 @@ All destinations, including email, are now cards. Existing cutouts peek through 
 ## Featured and follow revision — November 8, 2026
 
 The first four cards now share one Featured section and consistent card styling; Clocks in Orange retains the gold highlight. Instagram is restored and featured alongside TikTok, with Threads third. The social introduction asks visitors to follow and share to support better games and the goal of making games full time. All eleven cards passed keyboard focus checks and all eight responsive widths above passed image, overflow, and art separation checks. The staged reference checker passed.
+
+## Light visual and follow polish — November 8, 2026
+
+Added an introductory shortcut to the follow section, tightened its support message, and gave Instagram/TikTok visible Follow pills and narrow accent borders. Card shadows are slightly stronger. Each social card remains one anchor; the pills are visual cues within that link. No scripts, services, or artwork were added. Staging, 320/390/768/1440px layouts, image loading, art separation, pill containment, all eleven keyboard-accessible cards, and the follow shortcut passed checks. This is a design refinement; no conversion measurement is claimed.
