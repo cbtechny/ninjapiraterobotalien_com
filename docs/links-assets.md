@@ -20,3 +20,7 @@ Validation: staged reference checker; Edge screenshots at 320, 390, 768 and 1440
 The heading now reads “Ninja Pirate Robot Alien” with “Links” beneath it. Removed the small Batata logo, Batata website link, Instagram section, and separate jam link. The Clocks in Orange card links directly to the game and retains the Lilith/Packy credit. Threads is presented as the personal devlog. TikTok uses the user-confirmed `@ninjapiraterobotalien` handle; its automated destination check returned HTTP 403, so account content was not verified.
 
 All destinations, including email, are now cards. Existing cutouts peek through clipped page edges; no new generated artwork was needed. Edge checks passed at 320, 390, 768, 980, 1024, 1100, 1440 and 1920px: images loaded, no horizontal overflow, visible art stayed clear of cards, and all ten cards were keyboard reachable with visible focus. The staged reference checker passed.
+
+## Featured and follow revision — November 8, 2026
+
+The first four cards now share one Featured section and consistent card styling; Clocks in Orange retains the gold highlight. Instagram is restored and featured alongside TikTok, with Threads third. The social introduction asks visitors to follow and share to support better games and the goal of making games full time. All eleven cards passed keyboard focus checks and all eight responsive widths above passed image, overflow, and art separation checks. The staged reference checker passed.
