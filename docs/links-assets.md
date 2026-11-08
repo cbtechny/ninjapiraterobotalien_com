@@ -6,7 +6,7 @@ Local assets in `assets/images/links/`:
 
 - `avatar.png`: public GitHub avatar downloaded from https://github.com/cbtechny.png.
 - `instagram.webp`, `threads.webp`, `facebook.webp`: existing official brand emblems from `assets/images/about/brand_icons/`.
-- `github.svg`, `itchdotio.svg`: Simple Icons SVGs from https://github.com/simple-icons/simple-icons/tree/develop/icons (CC0).
+- `github.svg`, `itchdotio.svg`, `tiktok.svg`: Simple Icons SVGs from https://github.com/simple-icons/simple-icons/tree/develop/icons (CC0).
 - `ace.webp`, `pampa.webp`: transparent cutouts made with the built-in ImageGen tool from the existing `ace-roster-v2.png` and `pampa-roster-v2.png` portraits; split and resized to 600px-wide WebP files. The original portraits remain unchanged.
 
 ImageGen prompt:
@@ -14,3 +14,9 @@ ImageGen prompt:
 > Use case: background-extraction. Extract the two existing potato characters from these reference images into one transparent PNG asset sheet: Ace on the left half, Pampa on the right half, with a clear transparent gap between. Remove all background burst artwork and the flying playing card. Preserve each character's exact illustrated design, colors, black outlines, expression, hat, hair, eyes, moustache, proportions and face. No redesign or new pose. Complete clean cutout silhouettes, sharp edges, no text or added objects. Both faces fully visible. Transparent background.
 
 Validation: staged reference checker; Edge screenshots at 320, 390, 768 and 1440px; loaded images, no horizontal overflow, art/link separation, skip-link keyboard navigation. All eleven supplied HTTPS destinations returned HTTP 200 on November 8, 2026; social services can still gate content by login or region.
+
+## Card redesign — November 8, 2026
+
+The heading now reads “Ninja Pirate Robot Alien” with “Links” beneath it. Removed the small Batata logo, Batata website link, Instagram section, and separate jam link. The Clocks in Orange card links directly to the game and retains the Lilith/Packy credit. Threads is presented as the personal devlog. TikTok uses the user-confirmed `@ninjapiraterobotalien` handle; its automated destination check returned HTTP 403, so account content was not verified.
+
+All destinations, including email, are now cards. Existing cutouts peek through clipped page edges; no new generated artwork was needed. Edge checks passed at 320, 390, 768, 980, 1024, 1100, 1440 and 1920px: images loaded, no horizontal overflow, visible art stayed clear of cards, and all ten cards were keyboard reachable with visible focus. The staged reference checker passed.
